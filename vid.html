@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll-Triggered Video Movement with Counter</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent page scrolling initially */
+            height: 100vh; /* Full viewport height */
+            background-color: black; /* Blank background */
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden; /* Prevent overflow of the video */
+        }
+
+        .video-wrapper {
+            width: 25%; /* Video size reduced by 50% */
+            height: auto;
+            position: absolute;
+            bottom: -100%; /* Initially hidden below the screen */
+            left: 50%; /* Initially center horizontally */
+            transform: translateX(-50%); /* Horizontally centered */
+            opacity: 0; /* Initially invisible */
+            transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out, left 0.3s ease-in-out, transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Add smooth transitions */
+            filter: blur(0); /* Initially no blur */
+        }
+
+        /* Scroll counter style */
+        .scroll-counter {
+            position: absolute;
+            top: 20px; /* Distance from the top */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center the counter */
+            color: white;
+            font-size: 24px; /* Font size */
+            z-index: 2; /* Make sure it's on top */
+        }
+
+        /* Blank page for the second section */
+        .next-page {
+            background-color: black; /* Set next page background to black */
+            height: 100vh; /* Full height of the viewport */
+            display: none; /* Hidden initially */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="scroll-counter" id="scrollCounter">Scroll Count: 0</div> <!-- Scroll counter element -->
+        <video autoplay muted loop class="video-wrapper" id="scrollVideo">
+            <source src="65661ed49bc344ac62fb537e_6656cacd36520de6474029a1_SP_LOOP_1-transcode.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Blank page to appear after the 40th scroll -->
+    <div class="next-page" id="nextPage"></div>
+
+    <script>
+        const video = document.getElementById('scrollVideo');
+        const scrollCounter = document.getElementById('scrollCounter');
+        const nextPage = document.getElementById('nextPage');
+        let scrollCount = 0; // Track the number of scrolls
+        let scrollLock = true; // Lock page scroll initially
+
+        function handleScroll(event) {
+            // Check scroll direction (positive for down, negative for up)
+            const scrollDirection = event.deltaY > 0 ? 1 : -1;
+
+            // Adjust scroll count based on scroll direction
+            scrollCount += scrollDirection;
+
+            // Prevent scroll count from going below 0
+            if (scrollCount < 0) {
+                scrollCount = 0;
+            }
+
+            // Update the scroll counter display
+            scrollCounter.innerText = `Scroll Count: ${scrollCount}`;
+
+            // Gradual rise between scrolls 1 to 5
+            if (scrollCount >= 1 && scrollCount <= 5) {
+                const risePercentage = (scrollCount / 5) * 100; // Calculate the rise percentage (0% to 100%)
+                const opacity = scrollCount / 5; // Increase opacity gradually
+                const bottomPosition = (-100 + risePercentage) + '%'; // Calculate bottom position (starts at -100%)
+                video.style.bottom = bottomPosition;
+                video.style.opacity = opacity;
+            } else if (scrollCount > 5) {
+                video.style.bottom = 'calc(50% - 12.5% + -160px)'; // Final position
+                video.style.opacity = 1; // Fully visible
+            } else {
+                video.style.bottom = '-100%'; // Reset position
+                video.style.opacity = 0; // Reset opacity
+            }
+
+            // Gradual left movement between scrolls 7 to 13
+            if (scrollCount >= 7 && scrollCount <= 13) {
+                const movePercentage = (scrollCount - 7) / 6; // Calculate the progress from scroll 7 to 13 (0 to 1)
+                const leftPosition = 50 - (25 * movePercentage); // Move from 50% to 25%
+                video.style.left = `${leftPosition}%`;
+            } else if (scrollCount > 13) {
+                video.style.left = 'calc(25% - 50px)'; // Final left position
+            } else if (scrollCount < 7) {
+                video.style.left = '50%'; // Reset to initial center position
+            }
+
+            // Gradual move back to center and apply scale/blur between scrolls 25 to 35
+            if (scrollCount >= 25 && scrollCount <= 35) {
+                const moveBackPercentage = (scrollCount - 25) / 10; // Calculate progress from 0 to 1 over scrolls 25 to 35
+                const scale = 1 + (0.75 * moveBackPercentage); // Scale from 1 to 1.75
+                const blur = 10 * moveBackPercentage; // Blur from 0 to 10px
+                const leftPosition = 25 + (25 * moveBackPercentage); // Move back from 25% to 50%
+                
+                video.style.transform = `translateX(-50%) scale(${scale})`; // Apply scale
+                video.style.filter = `blur(${blur}px)`; // Apply blur
+                video.style.left = `${leftPosition}%`; // Move left gradually back to center
+            } else if (scrollCount > 35) {
+                video.style.transform = 'translateX(-50%) scale(1.75)'; // Final scale at 1.75
+                video.style.filter = 'blur(10px)'; // Final blur at 10px
+                video.style.left = '50%'; // Final left position at center
+            } else if (scrollCount < 25) {
+                video.style.transform = 'translateX(-50%) scale(1)'; // Reset scale
+                video.style.filter = 'blur(0px)'; // Reset blur
+            }
+
+            // After 40th scroll: Remove page scroll lock and move to the next blank page
+            if (scrollCount >= 40) {
+                document.body.style.overflow = 'auto'; // Allow page scrolling
+                nextPage.style.display = 'block'; // Show the next blank page
+
+                // Automatically scroll to the next page
+                window.scrollTo({
+                    top: window.innerHeight, // Scroll to the next section
+                    behavior: 'smooth' // Smooth scrolling effect
+                });
+
+                scrollLock = false; // Disable scroll lock
+            }
+
+            // If user scrolls back up before 40th scroll, hide the next page and re-enable scroll lock
+            if (scrollCount < 40) {
+                document.body.style.overflow = 'hidden'; // Re-lock page scrolling
+                nextPage.style.display = 'none'; // Hide the next page
+                scrollLock = true; // Enable scroll lock again
+            }
+
+            // Prevent the default scrolling behavior until the 40th scroll
+            if (scrollLock) {
+                event.preventDefault();
+            }
+        }
+
+        // Listen for scroll events
+        window.addEventListener('wheel', handleScroll);
+    </script>
+</body>
+
+</html>

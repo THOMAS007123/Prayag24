@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayag 24</title>
+    <link rel="icon" type="image/x-icon" href="Logo png without text.png" sizes="32x32 ">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>    
+<style>
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        #loader {
+            border: 10px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 10px solid #9146FF;
+            width: 100px;
+            height: 100px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        body.loading {
+            overflow: hidden;
+        }
+
+        body.loaded #loader-wrapper {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+
+        canvas {
+            position: relative;
+            z-index: 9;
+            max-width: 100vw;
+            max-height: 100vh;
+            background-color: #000;
+            opacity: 1;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        #loop {
+            display: flex;
+            position: absolute;
+            top: 30%;
+            height: 25%;
+            width: 100%;
+            font-size: 100px;
+            white-space: nowrap;
+            font-family: gilroy;
+        }
+
+        @import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
+
+        @keyframes slide {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+
+        .logos {
+            overflow: hidden;
+            padding: 20px 0;
+            background: rgb(0, 0, 0);
+            white-space: nowrap;
+            position: absolute;
+            height: 150px;
+            width: 60%;
+            margin: 0 auto;
+            bottom: 0;
+            transform: translateX(25%);
+        }
+
+        .logos:before,
+        .logos:after {
+            position: absolute;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            content: "";
+            z-index: 2;
+        }
+
+        .logos:before {
+            left: 0;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(0, 0, 0) 100%);
+        }
+
+        .logos:after {
+            right: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(0, 0, 0) 100%);
+        }
+
+        .logos:hover .logos-slide {
+            animation-play-state: paused;
+        }
+
+        .logos-slide {
+            display: inline-block;
+            animation: 20s slide infinite linear;
+        }
+
+        .logos-slide img {
+            height: 10px;
+            margin: 0 20px;
+        }
+
+        #logo {
+            border: 0px solid rgba(255, 255, 255, 0.5);
+            width: 150px;
+            height: 50px;
+            border-radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0px;
+        }
+
+        #container {
+            position: absolute;
+            margin: auto;
+            width: 100vw;
+            height: 80pt;
+            top: 0;
+            bottom: 0;
+            color: white;
+            filter: url(#threshold) blur(0.6px);
+        }
+
+        #text1,
+        #text2 {
+            position: absolute;
+            width: 100%;
+            display: inline-block;
+            color: transparent;
+            background-image: linear-gradient(90deg, #BB86FC, #9146FF);
+            background-clip: text;
+            -webkit-background-clip: text;
+            letter-spacing: 2px;
+           font-family: hevi;
+ 
+            font-size: 150pt;
+            text-align: center;
+            bottom: 8%;
+            user-select: none;
+        }
+
+.logo span {
+            color: #fff;
+            font-size: 20px;
+            font-style: italic;
+	opacity:.5;
+            font-family: 'Arial', sans-serif;
+            border-right: 2px solid rgba(255, 255, 255, 0.75); /* Blinking cursor effect */
+            white-space: nowrap; /* Prevent text from wrapping */
+            overflow: hidden; /* Hide overflow to create typing effect */
+            display: inline-block;
+            animation: typin 4s steps(30, end) forwards, blink 0.75s step-end 4s;
+        }
+
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background: black;
+            scroll-behavior: smooth;
+        }
+
+        .containermain {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background: linear-gradient(to bottom, black 60%, black);
+            z-index: 1;
+        }
+
+        .containertext {
+            height: 40vh;
+            width: 100%;
+            background: black;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .texted {
+            font-size: 48px;
+            line-height: 1.1;
+            text-align: center;
+            background: linear-gradient(to right, #d064db, #3a1377);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 2s ease-in-out;
+            font-family: 'Arial', sans-serif;
+            white-space: nowrap;
+            letter-spacing: 3px;
+        }
+
+        .texted span {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .texted.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .texted.hidden {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        @media (max-width: 600px) {
+            .texted {
+                font-size: 36px;
+            }
+        }
+
+        @font-face {
+            font-family: danger;
+            src: url(danger.ttf);
+        }
+@font-face {
+            font-family: hevi;
+            src: url(Heavitas.ttf);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: transparent;
+            border-radius: 30px;
+            width: 53%;
+            border: 1px solid #808080;
+            position: absolute;
+            top: 7%;
+            left: 23%;
+        }
+
+        .contact-button {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #fff;
+            background: linear-gradient(to left, #5e3b8b 20%, black);
+            border: 2px solid #7e4cc9;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #7e4cc9;
+        }
+
+        h2 {
+            text-align: center;
+            opacity: .5;
+            top: 57%;
+            left: 46%;
+            font-size: 30px;
+            position: absolute;
+            color: transparent;
+            background-image: linear-gradient(white, white);
+            background-clip: text;
+            -webkit-background-clip: text;
+            font-weight: bold;
+            font-family: "Oswald", sans-serif;
+        }
+
+        .b {
+            opacity: .9;
+            border: none;
+            font-family: "Oswald", sans-serif;
+            z-index: 2;
+            color: #BB86FC;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 68%;
+            left: 46%;
+            cursor: pointer;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .hcontainer {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hecontainer {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .video-wrapper {
+            width: 25%;
+            height: auto;
+            position: absolute;
+            bottom: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: bottom 1s ease-in-out, opacity 1s ease-in-out, left 1s ease-in-out, transform 1s ease-in-out, filter 1s ease-in-out;
+            filter: blur(0);
+        }
+
+        .rise {
+            bottom: calc(50% - 12.5% + -160px);
+            opacity: 1;
+        }
+
+        .move-left {
+            left: calc(25% - 50px);
+        }
+
+        .move-back {
+            left: 50%;
+            transform: translateX(-50%) scale(1.75);
+            filter: blur(10px);
+        }
+
+        .scroll-counter {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 24px;
+            z-index: 2;
+        }
+
+        .next-page {
+            background-color: black;
+            height: 100vh;
+            display: none;
+        }
+
+        .text-container {
+            position: absolute;
+            top: 60%;
+            left: calc(65%); /* Moved 250px to the right */
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 36px;
+            text-align: center;
+            opacity: 0;
+            width:28%;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .subheading {
+            margin-top: 10px;
+            font-size: 20px;
+            color: #ddd;
+		font-family: "Montserrat", sans-serif;
+	opacity:.5;
+        }
+        .subheading {
+    text-align:left;
+}
+
+k{
+
+font-family:fantasy;
+text-align:left;
+position:absolute;
+left:1%;
+
+
+}
+.text-reveal {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-in;
+}
+
+.text-unreveal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-out;
+}
+
+.logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+
+.eventcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+	width:100%;
+    background-color:black;
+    color: white;
+    overflow: hidden;
+}
+
+
+
+.swiper{
+    width: 100%;
+    padding: 50px 0;
+}
+.swiper-slide{
+    position: relative;
+    width: 450px;
+    aspect-ratio: 3/4;
+    border-radius: 14px;
+    border: 1px solid rgba(177,177,177,0.4);
+}
+.swiper-slide img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    user-select: none;
+}
+.title{
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%,-20%);
+    -ms-transform: translate(-50%,-20%);
+    width: max-content;
+    text-align: center;
+    padding: 10px 10px;
+    background: rgba(46,39,39,0.3);
+    border-radius: 8px;
+    border: 2px solid rgba(177,177,177,0.4);
+    box-shadow: 0 40px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.5s linear;
+}
+.title span{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.swiper-slide-active .title{
+    bottom: -10px;
+    box-shadow: 0 20px 30px 2px rgba(127, 17, 224, 0.6);
+}
+.swiper-pagination {
+    --swiper-pagination-bottom: -6px;
+}
+
+.swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+
+.video-wrappr {
+            width: 55%;
+            height: auto;
+            position: absolute;
+            
+            
+            opacity: 1;
+            transition: bottom 1s ease-in-out, opacity 1s ease-in-out, left 1s ease-in-out, transform 1s ease-in-out, filter 1s ease-in-out;
+            filter: blur(50px);
+	z-index:1;
+        }
+
+.swiper-pagination-bullet-active {
+    width: 32px;
+    background-color: rgba(127, 17, 224, 1);
+    border-radius: 14px;
+}
+@media (max-width: 1100px) {
+    .swiper-slide {
+      width: 300px;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .swiper-slide {
+      width: 250px;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .swiper-slide {
+      width: 230px;
+    }
+  }
+  
+  @media (max-width: 610px) {
+    .swiper-slide {
+      width: 200px;
+    }
+  }
+  
+
+
+.link-span {
+    text-decoration: none; /* Remove the underline by default */
+    color: inherit; /* Inherit color from parent */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+}
+
+
+
+    </style>
+</head>
+<body class="loading">
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+    </div>
+
+    <div class="containermain">
+        <div class="navbar">
+            <div class="logo">
+                <img src="Logo png without text.png" alt="Logo">
+                <span>Prayag24.live</span>
+            </div>
+            <div class="nav-buttons">
+                <button class="contact-button">SEARCH</button>
+            </div>
+        </div>
+        <div id="container">
+            <span id="text1"></span>
+            <span id="text2"></span>
+        </div>
+
+        <svg id="filters">
+            <defs>
+                <filter id="threshold">
+                    <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 255 -140"/>
+                </filter>
+            </defs>
+        </svg>
+        
+        <h2>17-18 OCT</h2>
+        <input type="button" class="b" value="REGISTER">
+        <div class="logos">
+            <div class="logos-slide"><img id="logo" src="3m.svg"></div>
+            <div class="logos-slide"><img id="logo" src="barstool-store.svg"></div>
+            <div class="logos-slide"><img id="logo" src="budweiser.svg"></div>
+            <div class="logos-slide"><img id="logo" src="buzzfeed.svg"></div>
+            <div class="logos-slide"><img id="logo" src="forbes.svg"></div>
+            <div class="logos-slide"><img id="logo" src="macys.svg"></div>
+            <div class="logos-slide"><img id="logo" src="menshealth.svg"></div>
+            <div class="logos-slide"><img id="logo" src="mrbeast.svg"></div>
+            <div class="logos-slide"><img id="logo" src="Riot Games.svg"></div>
+        </div>
+    </div>
+<br><br><br>
+    <div class="containertext" id="containertext">
+        <p class="texted" id="texted">
+            <span>Inside360 is a fast-growing Immersive AI</span>
+            <span>company merging the powers of two of the</span>
+            <span>most powerful technologies in our century.</span>
+        </p>
+    </div>
+
+    <div class="containertex" id="next"></div>
+
+    <div class="hcontainer" id="hcontainer">
+        <div class="scroll-counter" id="scrollCounter"></div>
+        <video autoplay muted loop class="video-wrapper" id="scrollVideo">
+            <source src="65661ed49bc344ac62fb537e_6656cacd36520de6474029a1_SP_LOOP_1-transcode.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="text-container" id="textContainer">
+            <k>PRAYAG 24</k><br>
+
+            <div class="subheading">Prayag is a flagship event organized as a part of the outreach program by Adi Shankara Institute of Engineering and Trchnology, Department of Artifical Intelligence and Data Science, aimed at introducing high school students to the exiciting field of Artifical Intelligence.This fest is designed to make AI accessible and engaging foryoung learners through interactive workshops, live demonstartions, and hands-on experiences.
+
+        </div>
+    </div>
+</div>
+
+    <div class="eventcontainer">
+
+
+<video autoplay muted loop class="video-wrappr">
+            <source src="65661ed49bc344ac62fb537e_6656cacd36520de6474029a1_SP_LOOP_1-transcode.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+<a href="event.html">  
+            <img src="./WhatsApp Image 2024-10-01 at 22.37.45_b2047f20.jpg" alt="">
+            <div class="title">
+
+</a>
+                
+            </div>
+          </div>
+          <div class="swiper-slide">
+<a href="event.html">  
+            <img src="WhatsApp Image 2024-10-01 at 22.37.46_8653b5e4.jpg" alt="">
+</a>
+            <div class="title">
+                
+            </div>
+          </div>
+<div class="swiper-slide">
+<a href="event.html">  
+            <img src="WhatsApp Image 2024-10-01 at 22.37.46_8653b5e4.jpg" alt="">
+</a>
+            <div class="title">
+                
+            </div>
+          </div>
+          <div class="swiper-slide">
+<a href="event.html">   
+            <img src="WhatsApp Image 2024-10-01 at 22.37.46_8653b5e4.jpg" alt="">
+</a>
+            <div class="title">
+                
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+
+var swiper = new Swiper(".swiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    initialSlide: 2,
+    speed: 600,
+    preventClicks: true,
+    slidesPerView: "auto",
+    coverflowEffect: {
+        rotate: 0,
+        stretch: 80,
+        depth: 350,
+        modifier: 1,
+        slideShadows: true,
+    },
+    on: {
+        click(event) {
+            swiper.slideTo(this.clickedIndex);
+        },
+    },
+    pagination: {
+        el: ".swiper-pagination",
+    },
+});
+
+
+        window.addEventListener('scroll', function() {
+            const container = document.getElementById('containertext');
+            const text = document.getElementById('texted');
+            const nextContainer = document.getElementById('next');
+            const containerPosition = container.getBoundingClientRect().top;
+            const containerBottom = container.getBoundingClientRect().bottom;
+            const screenHeight = window.innerHeight;
+            const nextContainerTop = nextContainer.getBoundingClientRect().top;
+
+            if (containerPosition < screenHeight && containerBottom > 0 && nextContainerTop > screenHeight * 0.6) {
+                text.classList.add('revealed');
+                text.classList.remove('hidden');
+            } else if (nextContainerTop <= screenHeight * 0.6) {
+                text.classList.remove('revealed');
+                text.classList.add('hidden');
+            }
+        });
+
+        const elts = { text1: document.getElementById("text1"), text2: document.getElementById("text2") };
+        const texts = ["Prayag", "പ്രയാഗ്", "प्रयाग ", "ಪ್ರಯಾಗ ", "பிரயாக் "];
+        const morphTime = 1;
+        const cooldownTime = 0.25;
+        let textIndex = texts.length - 1;
+        let time = new Date();
+        let morph = 0;
+        let cooldown = cooldownTime;
+
+        elts.text1.textContent = texts[textIndex % texts.length];
+        elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+
+        function doMorph() {
+            morph -= cooldown;
+            cooldown = 0;
+            let fraction = morph / morphTime;
+
+            if (fraction > 1) {
+                cooldown = cooldownTime;
+                fraction = 1;
+            }
+
+            setMorph(fraction);
+        }
+
+        function setMorph(fraction) {
+            elts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+            elts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+
+            fraction = 1 - fraction;
+            elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+            elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+
+            elts.text1.textContent = texts[textIndex % texts.length];
+            elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+        }
+
+        function doCooldown() {
+            morph = 0;
+            elts.text2.style.filter = "";
+            elts.text2.style.opacity = "100%";
+            elts.text1.style.filter = "";
+            elts.text1.style.opacity = "0%";
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            let newTime = new Date();
+            let shouldIncrementIndex = cooldown > 0;
+            let dt = (newTime - time) / 1000;
+            time = newTime;
+            cooldown -= dt;
+
+            if (cooldown <= 0) {
+                if (shouldIncrementIndex) {
+                    textIndex++;
+                }
+
+                doMorph();
+            } else {
+                doCooldown();
+            }
+        }
+
+        animate();
+
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.body.classList.remove('loading');
+                document.body.classList.add('loaded');
+            }, 5000);
+        });
+
+const video = document.getElementById('scrollVideo');
+const scrollCounter = document.getElementById('scrollCounter');
+const nextPage = document.getElementById('nextPage');
+const textContainer = document.getElementById('textContainer');
+const hcontainer = document.getElementById('hcontainer');
+
+let scrollCount = 0;
+let isInViewport = false; // Track if hcontainer is visible
+
+function updateScrollCounter(amount) {
+    if (!isInViewport) return; // Only update counter when hcontainer is visible
+
+    scrollCount += amount;
+    if (scrollCount < 0) scrollCount = 0;
+    if (scrollCount > 70) scrollCount = 70; // Cap scrollCount at 70
+
+    //scrollCounter.innerText = `Scroll Count: ${scrollCount}`;
+
+    if (scrollCount >= 42) {
+    video.classList.add('rise');
+} else {
+    video.classList.remove('rise');
+}
+
+if (scrollCount >= 50) {
+    video.classList.add('move-left');
+    textContainer.classList.add('text-reveal'); // Text starts to reveal after 50th scroll
+} else {
+    video.classList.remove('move-left');
+    textContainer.classList.remove('text-reveal'); // Ensure text is not revealed before 50th scroll
+}
+
+if (scrollCount >= 60) {
+    video.classList.add('move-back');
+} else if (scrollCount < 60) {
+    video.classList.remove('move-back');
+}
+
+if (scrollCount >= 62) {
+    textContainer.classList.add('text-unreveal');
+    textContainer.classList.remove('text-reveal'); // Ensure text is hidden after 68th scroll
+} else if (scrollCount < 62 && scrollCount >= 50) {
+    textContainer.classList.remove('text-unreveal');
+    textContainer.classList.add('text-reveal'); // Reveal text again when scrolling back above 68th scroll
+}
+
+if (scrollCount >= 72) {
+    nextPage.style.display = 'block';
+    window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+    });
+} else {
+    nextPage.style.display = 'none';
+    textContainer.classList.remove('text-unreveal');
+}
+
+
+
+}
+
+function handleScroll(event) {
+    const scrollDirection = event.deltaY > 0 ? 1 : -1;
+    updateScrollCounter(scrollDirection);
+}
+
+function handleArrowKeys(event) {
+    if (event.key === "ArrowUp") {
+        updateScrollCounter(-1);
+    } else if (event.key === "ArrowDown") {
+        updateScrollCounter(1);
+    }
+}
+
+function handleScrollBar() {
+    const scrolled = window.scrollY;
+    scrollCount = Math.floor(scrolled / window.innerHeight * 40);
+    updateScrollCounter(0); // Refresh the UI
+}
+
+// IntersectionObserver to detect when hcontainer is visible
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        isInViewport = entry.isIntersecting; // Update flag based on visibility
+    });
+}, {
+    threshold: 0.1 // Trigger when 50% of hcontainer is visible
+});
+
+observer.observe(hcontainer);
+
+window.addEventListener('wheel', handleScroll);
+window.addEventListener('keydown', handleArrowKeys);
+window.addEventListener('scroll', handleScrollBar);
+
+
+    </script>
+</body>
+</html>
