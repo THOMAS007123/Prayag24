@@ -39,17 +39,17 @@
             }).catch((error) => {
                 console.error('Autoplay blocked:', error);
                 // Optionally, you can add a button for user to enable audio
-                const enableButton = document.createElement('button');
-                enableButton.innerText = 'Enable Audio';
-                enableButton.style.position = 'absolute';
-                enableButton.style.top = '50%';
-                enableButton.style.left = '50%';
-                enableButton.style.transform = 'translate(-50%, -50%)';
-                enableButton.onclick = () => {
-                    audio.play();
-                    enableButton.remove(); // Remove the button after playing
-                };
-                document.body.appendChild(enableButton);
+                // const enableButton = document.createElement('button');
+                // enableButton.innerText = 'Enable Audio';
+                // enableButton.style.position = 'absolute';
+                // enableButton.style.top = '50%';
+                // enableButton.style.left = '50%';
+                // enableButton.style.transform = 'translate(-50%, -50%)';
+                // enableButton.onclick = () => {
+                //     audio.play();
+                //     enableButton.remove(); // Remove the button after playing
+                // };
+                // document.body.appendChild(enableButton);
             });
         });
 
