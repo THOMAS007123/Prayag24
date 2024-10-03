@@ -62,8 +62,8 @@ canvas {
 
 .cursor {
     position: relative;
-    width: 68%; /* Reduce width for better fit */
-    max-width: 100%; /* Ensure it never overflows */
+    width: 70%; /* Reduce width for better fit */
+    max-width: 98%; /* Ensure it never overflows */
     margin: 0 auto;
     border-right: 2px solid rgba(255, 255, 255, 0.75);
     font-size: 3vw; /* Responsive font size */
@@ -104,7 +104,7 @@ canvas {
 
 /* Scroll indicator styling */
 .scroll-indicator {
-    margin-top: 2rem;
+    margin-top: 5rem;
     animation: bounce 1.5s infinite alternate;
 }
 
