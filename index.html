@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prayga</title>
+    <title>Prayag24</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
 </head>
@@ -31,14 +31,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const audio = document.getElementById('myAudio');
+    const audio = document.getElementById('myAudio');
 
+    // Attempt to play the audio automatically
+    audio.play().then(() => {
+        console.log('Audio is playing automatically.');
+    }).catch(error => {
+        console.error('Autoplay was blocked:', error);
+        requestUserInteraction();
+    });
+
+    function requestUserInteraction() {
+        // Create an overlay div to prompt user to enable audio
+        const overlay = document.createElement('div');
+        overlay.id = 'audioOverlay';
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        overlay.style.color = 'white';
+        overlay.style.display = 'flex';
+        overlay.style.alignItems = 'center';
+        overlay.style.justifyContent = 'center';
+        overlay.style.zIndex = '1000';
+        overlay.innerHTML = '<p style="text-align:center;">Click anywhere to enable audio.</p>';
+
+        document.body.appendChild(overlay);
+
+        overlay.addEventListener('click', () => {
             audio.play().then(() => {
-                console.log('Audio is playing.');
+                console.log('Audio is playing after user interaction.');
+                document.body.removeChild(overlay);
             }).catch(error => {
-                console.error('Autoplay was blocked:', error);
+                console.error('Audio play failed after user interaction:', error);
             });
         });
+    }
+});
     </script>
     <script src="script.js"></script>
 </body>
