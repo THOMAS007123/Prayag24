@@ -31,21 +31,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
      document.addEventListener('DOMContentLoaded', () => {
-        const audio = document.getElementById('myAudio');
-        
-        // Try to play the audio
-            audio.play().catch(error => {
-            console.error('Autoplay blocked:', error);
-            // Prompt user to interact with the page
-            const button = document.createElement('button');
-            button.innerText = 'Enable Sound';
-            button.onclick = () => {
-                audio.muted = false;
-                audio.play();
-            };
-            document.body.appendChild(button);
-        });
-    });
+    const audio = document.getElementById('myAudio');
+    let hasInteracted = false;
+
+    const playAudio = () => {
+        if (!hasInteracted) {
+            audio.play().then(() => {
+                console.log('Audio is playing.');
+            }).catch(error => {
+                console.error('Autoplay blocked:', error);
+            });
+            hasInteracted = true; // Ensure audio only attempts to play once
+            document.removeEventListener('click', playAudio);
+            document.removeEventListener('scroll', playAudio);
+        }
+    };
+
+    // Listen for the first interaction (click or scroll) to play the audio
+    document.addEventListener('click', playAudio);
+    document.addEventListener('scroll', playAudio);
+});
+
 
     </script>
     <script src="script.js"></script>
