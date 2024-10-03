@@ -31,17 +31,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
      document.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('myAudio');
-    const permissionWarning = document.getElementById('permissionWarning');
-
-    audio.play().then(() => {
-        console.log('Audio is playing automatically.');
-    }).catch(error => {
-        console.error('Autoplay was blocked:', error);
-        permissionWarning.style.display = 'block';
+        const audio = document.getElementById('myAudio');
+        
+        // Try to play the audio
+            audio.play().catch(error => {
+            console.error('Autoplay blocked:', error);
+            // Prompt user to interact with the page
+            const button = document.createElement('button');
+            button.innerText = 'Enable Sound';
+            button.onclick = () => {
+                audio.muted = false;
+                audio.play();
+            };
+            document.body.appendChild(button);
+        });
     });
-});
-
 
     </script>
     <script src="script.js"></script>
