@@ -171,7 +171,9 @@
             letter-spacing: 2px;
            font-family: hevi;
  
-            font-size: 150pt;
+            /*font-size: 150pt;
+            font-size: 20vw;*/
+
             text-align: center;
             bottom: 8%;
             user-select: none;
@@ -248,13 +250,48 @@
             opacity: 0;
             transform: translateY(50px);
         }
-
         @media (max-width: 600px) {
             .texted {
-                font-size: 36px;
+                font-size: 3.2vw;
             }
         }
-
+        
+        @media (min-width: 601px) and (max-width: 1200px) {
+            .texted {
+                font-size: 3vw;
+            }
+        }
+        
+        @media (min-width: 1201px) {
+            .texted {
+                font-size: 3.7vw;
+            }
+        }
+        @media (min-width: 768px) {
+            h2 {
+                left : 30%; /* Larger screens have smaller font */
+            }
+        }
+        @media (max-width: 600px) {
+            #text1,
+            #text2 {
+                font-size: 20vw;
+            }
+        }
+        
+        @media (min-width: 601px) and (max-width: 1200px) {
+            #text1,
+            #text2 {
+                font-size: 15vw;
+            }
+        }
+        
+        @media (min-width: 1201px) {
+            #text1,
+            #text2 {
+                font-size: 15vw;
+            }
+        }
         @font-face {
             font-family: danger;
             src: url(danger.ttf);
