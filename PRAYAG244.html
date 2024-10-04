@@ -7,14 +7,13 @@
     <link rel="icon" type="image/x-icon" href="Logo png without text.png" sizes="32x32 ">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>    
 <style>
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
         #loader-wrapper {
@@ -129,7 +128,7 @@
         }
 
         .logos-slide img {
-            height: 10px;
+            height: 30px;
             margin: 0 20px;
         }
 
@@ -149,11 +148,12 @@
         body {
             margin: 0px;
         }
+
         #container {
             position: absolute;
             margin: auto;
             width: 100vw;
-            height: 50pt;
+            height: 80pt;
             top: 0;
             bottom: 0;
             color: white;
@@ -172,9 +172,7 @@
             letter-spacing: 2px;
            font-family: hevi;
  
-            /*font-size: 150pt;
-            font-size: 20vw;*/
-
+            font-size: 150pt;
             text-align: center;
             bottom: 8%;
             user-select: none;
@@ -182,7 +180,7 @@
 
 .logo span {
             color: #fff;
-            /*font-size: 20px;*/
+            font-size: 20px;
             font-style: italic;
 	opacity:.5;
             font-family: 'Arial', sans-serif;
@@ -226,7 +224,7 @@
             font-size: 48px;
             line-height: 1.1;
             text-align: center;
-            background: linear-gradient(to right, #d064db, #3a1377);
+            background: linear-gradient(to bottom, #d064db, #3a1377);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             opacity: 0;
@@ -235,6 +233,7 @@
             font-family: 'Arial', sans-serif;
             white-space: nowrap;
             letter-spacing: 3px;
+		font-weight:bold;
         }
 
         .texted span {
@@ -252,171 +251,9 @@
             transform: translateY(50px);
         }
 
-        /* Dynamic Responsiveness for .texted class*/
         @media (max-width: 600px) {
             .texted {
-                font-size: 3.2vw;
-            }
-        }
-        
-        @media (min-width: 601px) and (max-width: 1200px) {
-            .texted {
-                font-size: 3vw;
-            }
-        }
-        
-        @media (min-width: 1201px) {
-            .texted {
-                font-size: 3.7vw;
-            }
-        }
-
-        /* Small devices (phones, 600px and down) */
-        @media (max-width: 600px) {
-            .logo span {
-                font-size: 3vw;
-            }
-        }
-
-        /* Medium devices (tablets, 600px to 1200px) */
-        @media (min-width: 601px) and (max-width: 1200px) {
-            .logo span {
-                font-size: 3vw;
-            }
-        }
-
-        /* Large devices (laptops/desktops, 1200px and up) */
-        @media (min-width: 1201px) {
-            .logo span {
-                font-size: 20px;
-            }
-        }
-        /*Dynamic Responsivness for 17-oct part*/
-        @media (max-width: 600px) {
-            h2 {
-                font-size: 6vw;
-                top: 60%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
-        /* Medium devices (tablets, 600px to 1200px) */
-        @media (min-width: 601px) and (max-width: 1200px) {
-            h2 {
-                font-size: 5vw;
-                top: 60%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
-        /* Large devices (laptops/desktops, 1200px and up) */
-        @media (min-width: 1201px) {
-            h2 {
-                font-size: 30px;
-                top: 57%;
-                left: 46%;
-                transform: none;
-            }
-        }
-
-         /*Dynamic Responsivness for register button*/
-         @media (max-width: 600px) {
-            .b {
-                font-size: 6vw;
-                top: 68%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
-        /* Medium devices (tablets, 600px to 1200px) */
-        @media (min-width: 601px) and (max-width: 1200px) {
-            .b {
-                font-size: 5vw;
-                top: 68%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
-        /* Large devices (laptops/desktops, 1200px and up) */
-        @media (min-width: 1201px) {
-            .b {
-                font-size: 30px;
-                top: 68%;
-                left: 46%;
-                transform: none;
-            }
-        }
-
-        /*Dynamic Responsivness for the "PRAYAG" text*/
-        @media (max-width: 600px) {
-            #text1,
-            #text2 {
-                font-size: 20vw;
-            }
-        }
-        
-        @media (min-width: 601px) and (max-width: 1200px) {
-            #text1,
-            #text2 {
-                font-size: 15vw;
-            }
-        }
-        
-        @media (min-width: 1201px) {
-            #text1,
-            #text2 {
-                font-size: 15vw;
-            }
-        }
-        /*Dynamic Responsivness for navbar*/
-        @media (max-width: 600px) {
-            .navbar {
-                width: 80%;
-                top: 15%;
-                left: 10%;
-            }
-        }
-        
-        /* Medium devices (tablets, 600px to 1200px) */
-        @media (min-width: 601px) and (max-width: 1200px) {
-            .navbar {
-                width: 70%;
-                height: 63%;
-                top: 8%;
-                left: 15%;
-            }
-        }
-        
-        /* Large devices (laptops/desktops, 1200px and up) */
-        @media (min-width: 1201px) {
-            .navbar {
-                width: 53%;
-                height: 43%;
-                top: 7%;
-                left: 23%;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .contact-button {
-                font-size: 10px;
-                padding: 8px 16px;
-            }
-        }
-        
-        /* Medium devices (tablets, 600px to 1200px) */
-        @media (min-width: 601px) and (max-width: 1200px) {
-            .contact-button {
-                font-size: 12px;
-                padding: 9px 18px;
-            }
-        }
-        
-        /* Large devices (laptops/desktops, 1200px and up) */
-        @media (min-width: 1201px) {
-            .contact-button {
-                font-size: 14px;
-                padding: 10px 20px;
+                font-size: 36px;
             }
         }
 
@@ -424,12 +261,12 @@
             font-family: danger;
             src: url(danger.ttf);
         }
-        @font-face {
+@font-face {
             font-family: hevi;
             src: url(Heavitas.ttf);
         }
 
-        /*.navbar {
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -441,19 +278,9 @@
             position: absolute;
             top: 7%;
             left: 23%;
-        }*/
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            background: transparent;
-            border-radius: 30px;
-            border: 1px solid #808080;
-            position: absolute;
         }
 
-       /* .contact-button {
+        .contact-button {
             border: none;
             padding: 10px 20px;
             border-radius: 30px;
@@ -463,58 +290,13 @@
             background: linear-gradient(to left, #5e3b8b 20%, black);
             border: 2px solid #7e4cc9;
             transition: background-color 0.3s ease;
-        }*/
-        .contact-button {
-            border: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            color: #fff;
-            background: linear-gradient(to left, #5e3b8b 20%, black);
-            border: 2px solid #7e4cc9;
-            transition: background-color 0.3s ease;
         }
 
         .contact-button:hover {
             background-color: #7e4cc9;
         }
-        /*.contact-button img {
-            margin-right: none;
-            width: 50px;
-            height: 50px;
-        }*/
-        .contact-button img {
-            margin-right: 0; /* Adjust spacing between icon and text */
-            width: 50px; /* Adjust the size as needed */
-            height: 50px; /* Adjust the size as needed */
-        }
-        
-        /* Small devices (phones, 600px and down) */
-        @media (max-width: 600px) {
-            .contact-button img {
-                width: 25px; /* Adjust the size as needed */
-                height: 25px; /* Adjust the size as needed */
-            }
-        }
-        
-        /* Medium devices (tablets, 600px to 1200px) */
-        @media (min-width: 601px) and (max-width: 1200px) {
-            .contact-button img {
-                width: 30px; /* Adjust the size as needed */
-                height: 30px; /* Adjust the size as needed */
-            }
-        }
-        
-        /* Large devices (laptops/desktops, 1200px and up) */
-        @media (min-width: 1201px) {
-            .contact-button img {
-                width: 40px; /* Adjust the size as needed */
-                height: 40px; /* Adjust the size as needed */
-            }
-        }
-        
 
-        /*h2 {
+        h2 {
             text-align: center;
             opacity: .5;
             top: 57%;
@@ -527,44 +309,9 @@
             -webkit-background-clip: text;
             font-weight: bold;
             font-family: "Oswald", sans-serif;
-        }*/
-        h2 {
-            text-align: center;
-            opacity: .5;
-            position: absolute;
-            color: transparent;
-            background-image: linear-gradient(white, white);
-            background-clip: text;
-            -webkit-background-clip: text;
-            font-weight: bold;
-            font-family: "Oswald", sans-serif;
         }
-        
 
         .b {
-            opacity: .9;
-            border: none;
-            font-family: "Oswald", sans-serif;
-            z-index: 2;
-            color: #BB86FC;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 20px;
-            font-weight: bold;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            cursor: pointer;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-        /*.b {
             opacity: .9;
             border: none;
             font-family: "Oswald", sans-serif;
@@ -588,7 +335,7 @@
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }*/
+        }
 
         .hcontainer {
             position: relative;
@@ -617,7 +364,7 @@
         }
 
         .rise {
-            bottom: calc(50% - 12.5% + -160px);
+            bottom: calc(50% - 12.5% + -20px);
             opacity: 1;
         }
 
@@ -649,12 +396,12 @@
 
         .text-container {
             position: absolute;
-            top: 60%;
+            top: 45%;
             left: calc(65%); /* Moved 250px to the right */
             transform: translate(-50%, -50%);
             color: white;
             font-size: 36px;
-            text-align: center;
+            
             opacity: 0;
             width:28%;
             transition: opacity 1s ease-in-out;
@@ -668,7 +415,7 @@
 	opacity:.5;
         }
         .subheading {
-    text-align:left;
+    justify-content:center;
 }
 
 k{
@@ -695,6 +442,7 @@ left:1%;
 .logo {
             display: flex;
             align-items: center;
+		
         }
 
         .logo img {
@@ -813,7 +561,15 @@ left:1%;
     }
   }
   
+.footercont{
 
+ margin: 0;
+  font-family: Arial, sans-serif;
+    background-color: black;
+    color: #b3b3b3;
+
+
+}
 
 .link-span {
     text-decoration: none; /* Remove the underline by default */
@@ -821,7 +577,163 @@ left:1%;
     cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
 }
 
+.hidden-video {
+            opacity: 0;  /* Start hidden */
+            transition: opacity 1s ease-in-out;  /* Transition for opacity */
+            visibility: hidden;  /* Initially hidden for layout */
+        }
 
+        .visible-video {
+            opacity: 1;  /* Fully visible */
+            visibility: visible;  /* Ensure the video is visible */
+        }
+
+
+  footer {
+            border-top: 3px solid #333;
+            border-bottom: 3px solid #333;
+        }
+        .footer {
+            background-color: black;
+            color: #b3b3b3;
+            padding: 20px; /* Reduced padding for mobile */
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping */
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer .left, .footer .middle, .footer .right {
+            flex: 1 1 30%; /* Allow flex items to shrink and grow */
+            text-align: center; /* Center text in all sections */
+            margin: 10px; /* Margin between sections */
+        }
+        .footer .left {
+            font-size: 1rem; /* Responsive font size */
+        }
+        .footer .middle i {
+            font-size: 40px; /* Adjust icon size */
+            margin: 0 15px; /* Adjust margin */
+            color: #b3b3b3; /* Set icon color */
+            transition: color 0.3s; /* Smooth color change */
+        }
+        .footer .middle i:hover {
+            color: #f5f3e6; /* Change color on hover */
+        }
+        .footer .right {
+            display: flex;
+            justify-content: space-around;
+            align-items: center; /* Center items vertically */
+        }
+        .footer .right div {
+            text-align: center; /* Center text in each div */
+        }
+        .footer-bottom {
+            display: flex; /* Use flexbox for alignment */
+            justify-content: space-between; /* Space between the items */
+            align-items: center; /* Center items vertically */
+            padding: 10px 20px; /* Reduced padding */
+            background-color: black;
+            border-top: 3px solid #333;
+            flex-wrap: wrap; /* Allow wrapping */
+        }
+        .footer-bottom a {
+            color: #b3b3b3;
+            text-decoration: none;
+            margin: 0 10px; /* Space between links */
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .footer {
+                flex-direction: column; /* Stack items vertically on small screens */
+                align-items: center; /* Center items */
+            }
+            .footer .left, .footer .middle, .footer .right {
+                flex: 1 1 100%; /* Full width on small screens */
+            }
+            .footer-bottom {
+                flex-direction: column; /* Stack items vertically */
+                text-align: center; /* Center text */
+            }
+            .footer-bottom div {
+                margin: 5px 0; /* Margin for each item */
+            }
+        }
+
+.fixed-video {
+    position: fixed; /* Make the video fixed on screen */
+    top: calc(50% - 12.5% + -160px); /* Keep video vertically centered */
+    left: 50%; /* Horizontally centered */
+    transform: translateX(-50%) scale(1.75); /* Keep the enlarged size */
+    filter: blur(10px); /* Maintain the blur effect */
+}
+
+.video {
+    position: relative; /* or fixed depending on your layout */
+    z-index: 1; /* Default z-index */
+}
+
+.text-container {
+    position: relative; /* or absolute */
+    z-index: 2; /* Ensure this is higher than video */
+}
+
+
+.fixed-video {
+    position: fixed; /* Make the video fixed on screen */
+    top: calc(50% - 12.5% + -160px); /* Keep video vertically centered */
+    left: 50%; /* Horizontally centered */
+    transform: translateX(-50%) scale(1.75); /* Keep the enlarged size */
+    filter: blur(10px); /* Maintain the blur effect */
+}
+
+.video {
+    position: relative; /* or fixed depending on your layout */
+    z-index: 1; /* Default z-index */
+}
+
+.text-container {
+    position: relative; /* or absolute */
+    z-index: 2; /* Ensure this is higher than video */
+}
+
+
+.colourchange{
+ background-color: #000; /* Static background color */
+      height: 30vh; /* Height of the second container */
+      position: relative; /* Set relative position for absolute child elements */
+      overflow: hidden;
+}
+
+
+.scroll-text {
+    font-size: 35px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    position: absolute; 
+    top: 40%; 
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1, 1.1); /* Stretch both horizontally and vertically */
+    color: #8a2be2; 
+    padding: 20px 0;
+    opacity: 0; 
+    transition: color 2s ease, opacity 0.5s ease;
+    letter-spacing: 1px; 
+    z-index: 2;
+}
+
+    .visible {
+      opacity: 1; /* Fully visible */
+    }
+
+.contai {
+      height: 30vh; /* Each container takes up the full viewport height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 55px;
+      position: relative;
+    }
 
     </style>
 </head>
@@ -837,9 +749,7 @@ left:1%;
                 <span>Prayag24.live</span>
             </div>
             <div class="nav-buttons">
-                <button class="contact-button">
-                    <img src=./f.png>
-                </button>
+                <button class="contact-button">SEARCH</button>
             </div>
         </div>
         <div id="container">
@@ -858,27 +768,35 @@ left:1%;
         <h2>17-18 OCT</h2>
         <input type="button" class="b" value="REGISTER">
         <div class="logos">
-            <div class="logos-slide"><img id="logo" src="3m.svg"></div>
-            <div class="logos-slide"><img id="logo" src="barstool-store.svg"></div>
-            <div class="logos-slide"><img id="logo" src="budweiser.svg"></div>
-            <div class="logos-slide"><img id="logo" src="buzzfeed.svg"></div>
-            <div class="logos-slide"><img id="logo" src="forbes.svg"></div>
-            <div class="logos-slide"><img id="logo" src="macys.svg"></div>
-            <div class="logos-slide"><img id="logo" src="menshealth.svg"></div>
-            <div class="logos-slide"><img id="logo" src="mrbeast.svg"></div>
-            <div class="logos-slide"><img id="logo" src="Riot Games.svg"></div>
-        </div>
-    </div>
-<br><br><br>
-    <div class="containertext" id="containertext">
-        <p class="texted" id="texted">
-            <span>CSE (AI & DS) Dept. nurtures future tech leaders</span>
-            <span>offering a platform to explore machine learning</span>
-            <span>data analytics, software engineering, & more</span>
-        </p>
-    </div>
+      <div class="logos-slide">
+        <img src="3m.svg" />
+        <img src="barstool-store.svg" />
+        <img src="budweiser.svg" />
+        <img src="buzzfeed.svg" />
+        <img src="forbes.svg" />
+        <img src="macys.svg" />
+        <img src="menshealth.svg" />
+        <img src="mrbeast.svg" />
+      </div>
 
-    <div class="containertex" id="next"></div>
+      <div class="logos-slide">
+        <img src="3m.svg" />
+        <img src="barstool-store.svg" />
+        <img src="budweiser.svg" />
+        <img src="buzzfeed.svg" />
+        <img src="forbes.svg" />
+        <img src="macys.svg" />
+        <img src="menshealth.svg" />
+        <img src="mrbeast.svg" />
+      </div>
+    </div>
+</div>
+<br>
+  <div class="contai container-scroll">
+    <div class="scroll-text">
+     The Department of Computer Science and Engineering (AI & Data Science) nurtures future leaders to explore machine learning, data analytics, and software engineering.
+    </div>
+  </div>
 
     <div class="hcontainer" id="hcontainer">
         <div class="scroll-counter" id="scrollCounter"></div>
@@ -889,7 +807,7 @@ left:1%;
         <div class="text-container" id="textContainer">
             <k>PRAYAG 24</k><br>
 
-            <div class="subheading">Prayag is a flagship event organized as a part of the outreach program by Adi Shankara Institute of Engineering and Trchnology, Department of Artifical Intelligence and Data Science, aimed at introducing high school students to the exiciting field of Artifical Intelligence.This fest is designed to make AI accessible and engaging foryoung learners through interactive workshops, live demonstartions, and hands-on experiences.
+            <div class="subheading">Prayag is a celebration of creativity, innovation, and competition. Prayag provides a unique platform for young tech enthusiasts to showcase their talents and compete in a range of events. With the theme of “Inspire Ideas, Ignite Future ,” Prayag 2024 will feature an exciting lineup of competitions such as treasure hunts, gaming contests, design challenges, coding events, and idea pitches.
 
         </div>
     </div>
@@ -898,16 +816,12 @@ left:1%;
     <div class="eventcontainer">
 
 
-<video autoplay muted loop class="video-wrappr">
-            <source src="65661ed49bc344ac62fb537e_6656cacd36520de6474029a1_SP_LOOP_1-transcode.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
 
     <div class="swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
 <a href="event.html">  
-            <img src="./WhatsApp Image 2024-10-01 at 22.37.45_b2047f20.jpg" alt="">
+            <img src="Taylor Swift poster.jpeg" alt="">
             <div class="title">
 
 </a>
@@ -916,7 +830,7 @@ left:1%;
           </div>
           <div class="swiper-slide">
 <a href="event.html">  
-            <img src="WhatsApp Image 2024-10-01 at 22.37.46_8653b5e4.jpg" alt="">
+            <img src="Purple aesthetic (By Ratto).jpeg" alt="">
 </a>
             <div class="title">
                 
@@ -924,7 +838,7 @@ left:1%;
           </div>
 <div class="swiper-slide">
 <a href="event.html">  
-            <img src="WhatsApp Image 2024-10-01 at 22.37.46_8653b5e4.jpg" alt="">
+            <img src="t.jpeg" alt="">
 </a>
             <div class="title">
                 
@@ -942,6 +856,51 @@ left:1%;
         <div class="swiper-pagination"></div>
       </div>
 </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="footercont">
+<footer>
+        <div class="footer">
+            <div class="left">
+                <p style="margin-left: 2px;">Get in touch</p>
+                <p style="color: #f5f3e6; font-weight: bold; font-size: 2.5rem; margin-top: 10px;">ASIET@.ac.in</p>
+            </div>
+            <div class="middle">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-facebook"></i>
+            </div>
+            <div class="right">
+                <div>
+                    <p style="font-size: 1rem;">Home</p>
+                </div>
+                <div>
+                    <p style="font-size: 1rem;">Event</p>
+                </div>
+                <div>
+                    <p style="font-size: 1rem;">About</p>
+                </div>
+<div>
+                    <p style="font-size: 1rem;">Sponsers</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div style="flex: 1; display: flex; align-items: center;">
+                <p style="margin: 0;">©2024 - Prayag ASIET</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+                <a href="team.html" style="color: #b3b3b3; text-decoration: none;">Developed by PRAYAG24 Team</a>
+            </div>
+            <div style="flex: 1; display: flex; justify-content: flex-end; align-items: center;">
+                <p style="margin: 0;"> 
+                    <a href="#" style="color: #b3b3b3; text-decoration: none;">Terms & Conditions</a> | 
+                    <a href="#" style="color: #b3b3b3; text-decoration: none;">Privacy</a>
+                </p>
+            </div>
+        </div>
+
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
@@ -1076,50 +1035,63 @@ function updateScrollCounter(amount) {
     if (!isInViewport) return; // Only update counter when hcontainer is visible
 
     scrollCount += amount;
-    if (scrollCount < 0) scrollCount = 0;
-    if (scrollCount > 70) scrollCount = 70; // Cap scrollCount at 70
+if (scrollCount < 0) scrollCount = 0;
+if (scrollCount > 120) scrollCount = 120; // Cap scrollCount at 100
 
-    //scrollCounter.innerText = `Scroll Count: ${scrollCount}`;
+// Update scroll counter display (if needed)
+// scrollCounter.innerText = `Scroll Count: ${scrollCount}`;
 
-    if (scrollCount >= 42) {
+// Handle video display based on scrollCount
+if (scrollCount >= 105) {
+    // Remove the video after the 99th scroll
+    if (video.parentNode) {
+        video.parentNode.removeChild(video);
+    }
+} else {
+    // Re-add the video when scrolling back below the 99th scroll
+    if (!document.body.contains(video)) {
+        document.body.appendChild(video); // Re-append video to body
+    }
+}
+
+if (scrollCount >= 39) {
     video.classList.add('rise');
+    video.style.position = 'fixed';
 } else {
     video.classList.remove('rise');
 }
 
-if (scrollCount >= 50) {
+if (scrollCount >= 55) {
     video.classList.add('move-left');
-    textContainer.classList.add('text-reveal'); // Text starts to reveal after 50th scroll
+    textContainer.classList.add('text-reveal'); // Text starts to reveal after 55th scroll
 } else {
     video.classList.remove('move-left');
-    textContainer.classList.remove('text-reveal'); // Ensure text is not revealed before 50th scroll
+    textContainer.classList.remove('text-reveal'); // Ensure text is not revealed before 55th scroll
 }
 
-if (scrollCount >= 60) {
+if (scrollCount >= 95) {
     video.classList.add('move-back');
-} else if (scrollCount < 60) {
+} else if (scrollCount < 95) {
     video.classList.remove('move-back');
 }
 
-if (scrollCount >= 62) {
+if (scrollCount >= 80) {
     textContainer.classList.add('text-unreveal');
-    textContainer.classList.remove('text-reveal'); // Ensure text is hidden after 68th scroll
-} else if (scrollCount < 62 && scrollCount >= 50) {
+    textContainer.classList.remove('text-reveal'); // Ensure text is hidden after 65th scroll
+} else if (scrollCount < 80 && scrollCount >= 60) {
     textContainer.classList.remove('text-unreveal');
-    textContainer.classList.add('text-reveal'); // Reveal text again when scrolling back above 68th scroll
+    textContainer.classList.add('text-reveal'); // Reveal text again when scrolling back above 55th scroll
 }
 
-if (scrollCount >= 72) {
-    nextPage.style.display = 'block';
-    window.scrollTo({
-        top: window.innerHeight,
-        behavior: 'smooth'
-    });
-} else {
-    nextPage.style.display = 'none';
-    textContainer.classList.remove('text-unreveal');
+if (scrollCount >= 74) {
+    document.body.style.overflow = 'auto'; // Ensure the page stays scrollable
+    video.classList.add('fixed-video'); // Keep the video fixed in its final position
+    scrollLock = false;
 }
 
+if (scrollCount < 74) {
+    video.classList.remove('fixed-video'); // Remove fixed video class when scrolling up
+}
 
 
 }
@@ -1157,6 +1129,29 @@ observer.observe(hcontainer);
 window.addEventListener('wheel', handleScroll);
 window.addEventListener('keydown', handleArrowKeys);
 window.addEventListener('scroll', handleScrollBar);
+
+const textElement = document.querySelector('.scroll-text');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const documentHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPosition = scrollY / documentHeight;
+
+      // Change text color based on scroll position
+      if (scrollPosition <= 0.23) {
+        textElement.style.color = '#8a2be2'; // Purple
+        textElement.classList.remove('visible'); // Hide the text
+      } else if (scrollPosition > 0.27 && scrollPosition <= 0.31) {
+        textElement.style.color = '#FF69B4'; // Pink
+        textElement.classList.add('visible'); // Show the text
+      } else {
+        textElement.style.color = '#3f0071'; // Dark Purple
+        textElement.classList.add('visible'); // Show the text
+      }
+    });
+
+
+
 
 
     </script>
