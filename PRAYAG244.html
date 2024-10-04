@@ -7,12 +7,14 @@
     <link rel="icon" type="image/x-icon" href="Logo png without text.png" sizes="32x32 ">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>    
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
 <style>
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
         #loader-wrapper {
@@ -147,12 +149,11 @@
         body {
             margin: 0px;
         }
-
         #container {
             position: absolute;
             margin: auto;
             width: 100vw;
-            height: 80pt;
+            height: 50pt;
             top: 0;
             bottom: 0;
             color: white;
@@ -181,7 +182,7 @@
 
 .logo span {
             color: #fff;
-            font-size: 20px;
+            /*font-size: 20px;*/
             font-style: italic;
 	opacity:.5;
             font-family: 'Arial', sans-serif;
@@ -270,6 +271,26 @@
             }
         }
 
+        /* Small devices (phones, 600px and down) */
+        @media (max-width: 600px) {
+            .logo span {
+                font-size: 3vw;
+            }
+        }
+
+        /* Medium devices (tablets, 600px to 1200px) */
+        @media (min-width: 601px) and (max-width: 1200px) {
+            .logo span {
+                font-size: 3vw;
+            }
+        }
+
+        /* Large devices (laptops/desktops, 1200px and up) */
+        @media (min-width: 1201px) {
+            .logo span {
+                font-size: 20px;
+            }
+        }
         /*Dynamic Responsivness for 17-oct part*/
         @media (max-width: 600px) {
             h2 {
@@ -325,11 +346,8 @@
                 transform: none;
             }
         }
-        /*@media (min-width: 768px) {
-            h2 {
-                left : 30%; Larger screens have smaller font 
-            }
-        }*/
+
+        /*Dynamic Responsivness for the "PRAYAG" text*/
         @media (max-width: 600px) {
             #text1,
             #text2 {
@@ -350,16 +368,68 @@
                 font-size: 15vw;
             }
         }
+        /*Dynamic Responsivness for navbar*/
+        @media (max-width: 600px) {
+            .navbar {
+                width: 80%;
+                top: 15%;
+                left: 10%;
+            }
+        }
+        
+        /* Medium devices (tablets, 600px to 1200px) */
+        @media (min-width: 601px) and (max-width: 1200px) {
+            .navbar {
+                width: 70%;
+                height: 63%;
+                top: 8%;
+                left: 15%;
+            }
+        }
+        
+        /* Large devices (laptops/desktops, 1200px and up) */
+        @media (min-width: 1201px) {
+            .navbar {
+                width: 53%;
+                height: 43%;
+                top: 7%;
+                left: 23%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-button {
+                font-size: 10px;
+                padding: 8px 16px;
+            }
+        }
+        
+        /* Medium devices (tablets, 600px to 1200px) */
+        @media (min-width: 601px) and (max-width: 1200px) {
+            .contact-button {
+                font-size: 12px;
+                padding: 9px 18px;
+            }
+        }
+        
+        /* Large devices (laptops/desktops, 1200px and up) */
+        @media (min-width: 1201px) {
+            .contact-button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+
         @font-face {
             font-family: danger;
             src: url(danger.ttf);
         }
-@font-face {
+        @font-face {
             font-family: hevi;
             src: url(Heavitas.ttf);
         }
 
-        .navbar {
+        /*.navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -371,9 +441,19 @@
             position: absolute;
             top: 7%;
             left: 23%;
+        }*/
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: transparent;
+            border-radius: 30px;
+            border: 1px solid #808080;
+            position: absolute;
         }
 
-        .contact-button {
+       /* .contact-button {
             border: none;
             padding: 10px 20px;
             border-radius: 30px;
@@ -383,11 +463,56 @@
             background: linear-gradient(to left, #5e3b8b 20%, black);
             border: 2px solid #7e4cc9;
             transition: background-color 0.3s ease;
+        }*/
+        .contact-button {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            color: #fff;
+            background: linear-gradient(to left, #5e3b8b 20%, black);
+            border: 2px solid #7e4cc9;
+            transition: background-color 0.3s ease;
         }
 
         .contact-button:hover {
             background-color: #7e4cc9;
         }
+        /*.contact-button img {
+            margin-right: none;
+            width: 50px;
+            height: 50px;
+        }*/
+        .contact-button img {
+            margin-right: 0; /* Adjust spacing between icon and text */
+            width: 50px; /* Adjust the size as needed */
+            height: 50px; /* Adjust the size as needed */
+        }
+        
+        /* Small devices (phones, 600px and down) */
+        @media (max-width: 600px) {
+            .contact-button img {
+                width: 25px; /* Adjust the size as needed */
+                height: 25px; /* Adjust the size as needed */
+            }
+        }
+        
+        /* Medium devices (tablets, 600px to 1200px) */
+        @media (min-width: 601px) and (max-width: 1200px) {
+            .contact-button img {
+                width: 30px; /* Adjust the size as needed */
+                height: 30px; /* Adjust the size as needed */
+            }
+        }
+        
+        /* Large devices (laptops/desktops, 1200px and up) */
+        @media (min-width: 1201px) {
+            .contact-button img {
+                width: 40px; /* Adjust the size as needed */
+                height: 40px; /* Adjust the size as needed */
+            }
+        }
+        
 
         /*h2 {
             text-align: center;
@@ -712,7 +837,9 @@ left:1%;
                 <span>Prayag24.live</span>
             </div>
             <div class="nav-buttons">
-                <button class="contact-button">SEARCH</button>
+                <button class="contact-button">
+                    <img src=./f.png>
+                </button>
             </div>
         </div>
         <div id="container">
@@ -745,9 +872,9 @@ left:1%;
 <br><br><br>
     <div class="containertext" id="containertext">
         <p class="texted" id="texted">
-            <span>Inside360 is a fast-growing Immersive AI</span>
-            <span>company merging the powers of two of the</span>
-            <span>most powerful technologies in our century.</span>
+            <span>CSE (AI & DS) Dept. nurtures future tech leaders</span>
+            <span>offering a platform to explore machine learning</span>
+            <span>data analytics, software engineering, & more</span>
         </p>
     </div>
 
