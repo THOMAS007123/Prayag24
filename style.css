@@ -13,7 +13,18 @@ html, body {
     font-family: 'Anonymous Pro', monospace;
     color: #6c39a2;
 }
+.blinker {
+    animation: blinker 1.5s linear infinite;
+    color: #686868;
+    font-size: 1.5em; /* Larger, responsive font size */
+    margin-top: 150px; /* Adjust margin to position it below chevrons */
+}
 
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
 .container {
     position: relative;
     width: 100%;

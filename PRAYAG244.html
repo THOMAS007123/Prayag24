@@ -31,33 +31,28 @@
             opacity: 1;
             visibility: visible;
         }
+#loader {
+    background-image: url('AI Loader Exploration - GIF.gif'); /* Your GIF file */
+    background-size: cover;
+	background-position:center; /* Ensure the GIF covers the div */
+    width: 300px; /* Set the width of the loader */
+    height: 250px; /* Set the height of the loader */
+     /* Spin animation */
+}
 
 
-        #loader {
-            border: 10px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 10px solid #9146FF;
-            width: 100px;
-            height: 100px;
-            animation: spin 1s linear infinite;
-        }
+body.loading {
+    overflow: hidden; /* Prevent scrolling while loading */
+}
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+body.loaded #loader-wrapper {
+    opacity: 0; /* Fade out effect */
+    visibility: hidden; /* Hide loader */
+}
 
-        body.loading {
-            overflow: hidden;
-        }
 
-        body.loaded #loader-wrapper {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-        }
 
-        canvas {
+               canvas {
             position: relative;
             z-index: 9;
             max-width: 100vw;
@@ -188,7 +183,7 @@
             white-space: nowrap; /* Prevent text from wrapping */
             overflow: hidden; /* Hide overflow to create typing effect */
             display: inline-block;
-            animation: typin 4s steps(30, end) forwards, blink 0.75s step-end 4s;
+            animation: typing 4s steps(30, end) forwards, blink 0.75s step-end 4s;
         }
 
 
@@ -233,7 +228,6 @@
             font-family: 'Arial', sans-serif;
             white-space: nowrap;
             letter-spacing: 3px;
-		font-weight:bold;
         }
 
         .texted span {
@@ -340,7 +334,7 @@
         .hcontainer {
             position: relative;
             width: 100%;
-            height: 100vh;
+            height: 130vh;
             overflow: hidden;
         }
 
@@ -364,7 +358,7 @@
         }
 
         .rise {
-            bottom: calc(50% - 12.5% + -20px);
+            bottom: calc(50% - 12.5% + -30px);
             opacity: 1;
         }
 
@@ -395,7 +389,7 @@
         }
 
         .text-container {
-            position: absolute;
+           position: absolute;
             top: 45%;
             left: calc(65%); /* Moved 250px to the right */
             transform: translate(-50%, -50%);
@@ -405,17 +399,20 @@
             opacity: 0;
             width:28%;
             transition: opacity 1s ease-in-out;
+
         }
 
         .subheading {
-            margin-top: 10px;
+             margin-top: 10px;
             font-size: 20px;
             color: #ddd;
 		font-family: "Montserrat", sans-serif;
 	opacity:.5;
         }
         .subheading {
-    justify-content:center;
+    text-align:left;
+
+	
 }
 
 k{
@@ -442,7 +439,6 @@ left:1%;
 .logo {
             display: flex;
             align-items: center;
-		
         }
 
         .logo img {
@@ -455,7 +451,7 @@ left:1%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
 	width:100%;
     background-color:black;
     color: white;
@@ -589,14 +585,15 @@ left:1%;
         }
 
 
-  footer {
-            border-top: 3px solid #333;
-            border-bottom: 3px solid #333;
+ footer {
+            border-top: 5px solid #333;
+            border-bottom: 5px solid #333;
         }
         .footer {
             background-color: black;
             color: #b3b3b3;
-            padding: 20px; /* Reduced padding for mobile */
+            padding: 40px;
+	; /* Reduced padding for mobile */
             display: flex;
             flex-wrap: wrap; /* Allow wrapping */
             justify-content: space-between;
@@ -611,8 +608,8 @@ left:1%;
             font-size: 1rem; /* Responsive font size */
         }
         .footer .middle i {
-            font-size: 40px; /* Adjust icon size */
-            margin: 0 15px; /* Adjust margin */
+            font-size: 60px; /* Adjust icon size */
+            margin: 0 25px; /* Adjust margin */
             color: #b3b3b3; /* Set icon color */
             transition: color 0.3s; /* Smooth color change */
         }
@@ -631,9 +628,9 @@ left:1%;
             display: flex; /* Use flexbox for alignment */
             justify-content: space-between; /* Space between the items */
             align-items: center; /* Center items vertically */
-            padding: 10px 20px; /* Reduced padding */
+            padding: 15px 25px; /* Reduced padding */
             background-color: black;
-            border-top: 3px solid #333;
+            border-top: 5px solid #333;
             flex-wrap: wrap; /* Allow wrapping */
         }
         .footer-bottom a {
@@ -660,26 +657,7 @@ left:1%;
             }
         }
 
-.fixed-video {
-    position: fixed; /* Make the video fixed on screen */
-    top: calc(50% - 12.5% + -160px); /* Keep video vertically centered */
-    left: 50%; /* Horizontally centered */
-    transform: translateX(-50%) scale(1.75); /* Keep the enlarged size */
-    filter: blur(10px); /* Maintain the blur effect */
-}
-
-.video {
-    position: relative; /* or fixed depending on your layout */
-    z-index: 1; /* Default z-index */
-}
-
-.text-container {
-    position: relative; /* or absolute */
-    z-index: 2; /* Ensure this is higher than video */
-}
-
-
-.fixed-video {
+	.fixed-video {
     position: fixed; /* Make the video fixed on screen */
     top: calc(50% - 12.5% + -160px); /* Keep video vertically centered */
     left: 50%; /* Horizontally centered */
@@ -735,6 +713,8 @@ left:1%;
       position: relative;
     }
 
+
+
     </style>
 </head>
 <body class="loading">
@@ -778,8 +758,7 @@ left:1%;
         <img src="menshealth.svg" />
         <img src="mrbeast.svg" />
       </div>
-
-      <div class="logos-slide">
+<div class="logos-slide">
         <img src="3m.svg" />
         <img src="barstool-store.svg" />
         <img src="budweiser.svg" />
@@ -791,12 +770,13 @@ left:1%;
       </div>
     </div>
 </div>
-<br>
-  <div class="contai container-scroll">
-    <div class="scroll-text">
+<br><br><br>
+    <div class="containertext">
+
+     <div class="scroll-text">
      The Department of Computer Science and Engineering (AI & Data Science) nurtures future leaders to explore machine learning, data analytics, and software engineering.
     </div>
-  </div>
+</div>
 
     <div class="hcontainer" id="hcontainer">
         <div class="scroll-counter" id="scrollCounter"></div>
@@ -807,7 +787,7 @@ left:1%;
         <div class="text-container" id="textContainer">
             <k>PRAYAG 24</k><br>
 
-            <div class="subheading">Prayag is a celebration of creativity, innovation, and competition. Prayag provides a unique platform for young tech enthusiasts to showcase their talents and compete in a range of events. With the theme of “Inspire Ideas, Ignite Future ,” Prayag 2024 will feature an exciting lineup of competitions such as treasure hunts, gaming contests, design challenges, coding events, and idea pitches.
+            <div class="subheading">Prayag is a flagship event organized as a part of the outreach program by Adi Shankara Institute of Engineering and Trchnology, Department of Artifical Intelligence and Data Science, aimed at introducing high school students to the exiciting field of Artifical Intelligence.This fest is designed to make AI accessible and engaging foryoung learners through interactive workshops, live demonstartions, and hands-on experiences.
 
         </div>
     </div>
@@ -816,45 +796,36 @@ left:1%;
     <div class="eventcontainer">
 
 
-
     <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-<a href="event.html">  
-            <img src="Taylor Swift poster.jpeg" alt="">
-            <div class="title">
-
-</a>
-                
-            </div>
-          </div>
-          <div class="swiper-slide">
-<a href="event.html">  
-            <img src="Purple aesthetic (By Ratto).jpeg" alt="">
-</a>
-            <div class="title">
-                
-            </div>
-          </div>
-<div class="swiper-slide">
-<a href="event.html">  
-            <img src="t.jpeg" alt="">
-</a>
-            <div class="title">
-                
-            </div>
-          </div>
-          <div class="swiper-slide">
-<a href="event.html">   
-            <img src="WhatsApp Image 2024-10-01 at 22.37.46_8653b5e4.jpg" alt="">
-</a>
-            <div class="title">
-                
-            </div>
-          </div>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <a href="events.html?id=1">
+                <img src="Taylor Swift poster.jpeg" alt="">
+                <div class="title"></div>
+            </a>
         </div>
-        <div class="swiper-pagination"></div>
-      </div>
+        <div class="swiper-slide">
+            <a href="events.html?id=2">
+                <img src="Purple aesthetic (By Ratto).jpeg" alt="">
+                <div class="title"></div>
+            </a>
+        </div>
+        <div class="swiper-slide">
+            <a href="events.html?id=3">
+                <img src="t.jpeg" alt="">
+                <div class="title"></div>
+            </a>
+        </div>
+        <div class="swiper-slide">
+            <a href="events.html?id=4">
+                <img src="WhatsApp Image 2024-10-01 at 22.37.46_8653b5e4.jpg" alt="">
+                <div class="title"></div>
+            </a>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <div class="footercont">
@@ -1054,7 +1025,7 @@ if (scrollCount >= 105) {
     }
 }
 
-if (scrollCount >= 39) {
+if (scrollCount >= 37) {
     video.classList.add('rise');
     video.style.position = 'fixed';
 } else {
@@ -1069,7 +1040,7 @@ if (scrollCount >= 55) {
     textContainer.classList.remove('text-reveal'); // Ensure text is not revealed before 55th scroll
 }
 
-if (scrollCount >= 95) {
+if (scrollCount >= 110) {
     video.classList.add('move-back');
 } else if (scrollCount < 95) {
     video.classList.remove('move-back');
@@ -1130,6 +1101,7 @@ window.addEventListener('wheel', handleScroll);
 window.addEventListener('keydown', handleArrowKeys);
 window.addEventListener('scroll', handleScrollBar);
 
+
 const textElement = document.querySelector('.scroll-text');
 
     window.addEventListener('scroll', () => {
@@ -1141,7 +1113,7 @@ const textElement = document.querySelector('.scroll-text');
       if (scrollPosition <= 0.23) {
         textElement.style.color = '#8a2be2'; // Purple
         textElement.classList.remove('visible'); // Hide the text
-      } else if (scrollPosition > 0.27 && scrollPosition <= 0.31) {
+      } else if (scrollPosition > 0.25 && scrollPosition <= 0.33) {
         textElement.style.color = '#FF69B4'; // Pink
         textElement.classList.add('visible'); // Show the text
       } else {
@@ -1149,9 +1121,6 @@ const textElement = document.querySelector('.scroll-text');
         textElement.classList.add('visible'); // Show the text
       }
     });
-
-
-
 
 
     </script>
