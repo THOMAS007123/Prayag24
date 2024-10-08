@@ -133,6 +133,7 @@ canvas {
 
 }
 
+
 .typewriter-animation {
     animation: typewriter 4s steps(50) 1 normal both, blinkingCursor 500ms steps(50) infinite normal;
 }
