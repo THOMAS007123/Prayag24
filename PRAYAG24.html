@@ -1300,7 +1300,67 @@ margin-left: 2px;
 
 }
 
+.sponsor-container {
+    display: flex;
+    flex-direction: column;  /* Stack elements (title and image) vertically */
+    justify-content: center;  /* Horizontally centers the content */
+    align-items: center;      /* Vertically centers the content */
+    background-color: black;
+    min-height: 100vh;         /* Ensures the container's height is responsive */
+    width: 100%;
+    text-align: center;
+    padding: 20px;            /* Adds padding to prevent the content from touching the screen edges on smaller devices */
+    box-sizing: border-box;   /* Ensures padding is included in width/height calculations */
+}
 
+.sponsor img {
+    max-width: 80%;          /* Ensures the image is responsive */
+    height: auto;             /* Maintains the aspect ratio of the image */
+    margin-bottom: 10px;      /* Reduces the space between the image and the title */
+}
+
+.sponsor-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-top: 1px;
+    opacity:.6;          /* Adjusts the spacing between the title and the image */
+}
+
+
+/* Media query for mobile screens */
+@media screen and (max-width: 768px) {
+    .sponsor-container {
+        padding: 10px;  /* Decrease padding on smaller screens */
+    }
+
+    .sponsor img {
+        max-width: 90%;  /* Make the image slightly larger on mobile */
+        margin-bottom: 5px;  /* Decrease margin between the image and the title */
+    }
+
+    .sponsor-title {
+        font-size: 1.2em;  /* Reduce font size for mobile */
+    }
+
+    /* Reduce gap between .sponsor-container and other elements */
+    .sponsor-container {
+        padding: 10px;  /* Decrease padding for smaller devices */
+        min-height: 50vh;  /* Set container height to 50% of the viewport height */
+        width: 100%;  /* Adjust width to make it more compact */
+    }
+}
+
+
+/* Media query for tablets (768px to 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .sponsor-container {
+        padding: 15px;  /* Moderate padding for tablets */
+        min-height: 75vh;  /* Set container height to 75% of the viewport height */
+        width: 100%;  /* Slightly reduce the width to create space on sides */
+    }
+}
     </style>
 </head>
 <body class="loading">
@@ -1416,6 +1476,14 @@ margin-left: 2px;
     <br><br>
 </div>
 
+</div>
+<div class="sponsor-container">
+    <!-- Title Sponsor (Centered) -->
+
+    <div class="sponsor">
+        <img src="matrixx logo white.png" alt="Federal Bank Logo">
+        <div class="sponsor-title">Title Sponsor</div>
+    </div>
 </div>
 <br><br><br><br>
 <div class="footercont"id="foots">
