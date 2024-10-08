@@ -1,4 +1,3 @@
-
 function locomotive() {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -337,7 +336,7 @@ images[1].onload = render;
 function redirectToNextPage() {
   console.log("All frames rendered, redirecting to PRAYAG244.html...");
   setTimeout(() => {
-    window.location.replace("./PRAYAG244.html");
+    window.location.replace("./PRAYAG24.html");
   }, 1000); // wait for 1 second before redirecting
 }
 function render() {
