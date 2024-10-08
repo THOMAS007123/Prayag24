@@ -122,12 +122,13 @@ canvas {
     overflow: hidden;
     transform: translateY(-30%);
     padding-right: 0.1em;
-    top:40vmax;
+    top:25vmax;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1024px) {
     .cursor {
-        font-size: 3vw; /* Adjust font size to make it smaller for smaller screens */
+        font-size: 3vw;
+        top:35vmax;/* Adjust font size to make it smaller for smaller screens */
     }
 
 }
