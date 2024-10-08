@@ -125,13 +125,19 @@ canvas {
     top:25vmax;
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     .cursor {
-        position: fixed;
-        font-size: 3vw;
-        top:35vmax;/* Adjust font size to make it smaller for smaller screens */
+        font-size: 4vw; /* Increase font size for tablets */
+        top: 20vmax; /* Adjust top positioning for better fit */
     }
+}
 
+/* Media query for phones (max-width: 767px) */
+@media (max-width: 767px) {
+    .cursor {
+        font-size: 5vw; /* Larger font size for smaller screens */
+        top: 15vmax; /* Adjust top position to fit better on phones */
+    }
 }
 
 .typewriter-animation {
