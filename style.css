@@ -19,11 +19,54 @@ html, body {
     font-size: 1.5em; /* Larger, responsive font size */
      position: absolute;
      top: 35vmax;/* Adjust margin to position it below chevrons */
+     text-align: center;
 }
+
+/* For mobile screens */
+@media screen and (max-width: 768px) {
+    .blinker {
+        top: 65vmax;  /* Adjusted for mobile, bringing it further down */
+        font-size: 1.2em;  /* Slightly smaller font for mobile */
+    }
+}
+
+/* For tablet screens (768px to 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .blinker {
+        top: 60vmax;  /* Adjusted for tablets */
+        font-size: 1.3em;  /* Moderate font size for tablets */
+    }
+}
+
+
 .flipdown {
     margin: auto;
     margin-top: 10%;
   }
+
+  /* Media query for mobile screens */
+@media screen and (max-width: 768px) {
+    .flipdown {
+        margin-top: 20%;
+        height: 30vw;
+    }
+}
+
+/* Media query for tablets (768px to 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .flipdown {
+        margin-top: 15%;  /* Moderate top margin for tablet screens */
+    }
+}
+
+/* Media query for desktop screens (above 1024px) */
+@media screen and (min-width: 1024px) {
+    .flipdown {
+        margin-top: 10%;  /* Standard margin for larger screens */
+    }
+}
+
+
 @keyframes blinker {
     50% {
         opacity: 0;
@@ -79,7 +122,7 @@ canvas {
     overflow: hidden;
     transform: translateY(-30%);
     padding-right: 0.1em;
-    top:25vmax;
+    top:40vmax;
 }
 
 @media (min-width: 768px) {
@@ -194,6 +237,28 @@ canvas {
         transform: translateY(calc(var(--base) * 8)) scale(0.5);
     }
 }
+
+
+/* Media query for mobile screens */
+@media screen and (max-width: 768px) {
+    .chevron {
+        width: calc(var(--base) * 2.5);  /* Smaller chevrons */
+        height: calc(var(--base) * 0.6);  /* Adjust height */
+        top: 40vmax;  /* Bring the chevrons lower for mobile */
+        transform: scale(0.25);  /* Scale down the chevrons for mobile */
+    }
+}
+
+/* Media query for tablets (768px to 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .chevron {
+        width: calc(var(--base) * 3);  /* Moderately smaller chevrons */
+        height: calc(var(--base) * 0.7);  /* Adjust height for tablet */
+        top: 45vmax;  /* Bring chevrons lower for tablets */
+        transform: scale(0.28);  /* Slightly scale down for tablets */
+    }
+}
+
 
 
 /* Adjust font size for large text in the loop */
