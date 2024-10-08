@@ -57,7 +57,5 @@ document.addEventListener('DOMContentLoaded', () => {
   var ver = document.getElementById('ver');
   if (ver) {
     ver.innerHTML = flipdown.version;
-  } else {
-    console.warn('Version element not found');
   }
 });

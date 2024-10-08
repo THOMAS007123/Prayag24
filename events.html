@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Course</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+        }
+
+        /* Container for the whole card */
+        .course-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+	background-image:url("event.jpg");
+	background-size:cover;
+	background-position:center;
+            
+        }
+
+        /* Card */
+        .card {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    overflow: hidden;
+    max-width: 1200px;
+    width: 100%;
+    height: 550px; /* Set a fixed height */
+    user-select: none;
+}
+
+
+/* For small screens (mobile devices) */
+@media screen and (max-width: 600px) {
+    .card {
+        height: auto; /* Remove fixed height for flexibility */
+        max-width: 90%; /* Reduce the width to fit smaller screens */
+        box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25); /* Adjust shadow for small screens */
+    }
+}
+
+/* For medium screens (tablets) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .card {
+        height: 500px; /* Reduce height for tablets */
+        max-width: 80%; /* Adjust width to fit tablet screens */
+        box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.3); /* Slightly reduced shadow */
+    }
+}
+
+        @media (min-width: 768px) {
+            .card {
+                flex-direction: row;
+            }
+        }
+
+        /* Image styling */
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .card img {
+                width: 400px;
+            }
+        }
+
+        /* Right side content */
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .card-content h1, .card-content h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .card-content h1, .card-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .card-content h2 {
+            color: #BB86FC;
+            font-family:pa;
+        }
+
+        .card-content .price {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        @media (min-width: 768px) {
+            .card-content .price {
+                font-size: 1.5rem;
+            }
+        }
+
+        .card-content .price span {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        /* Button styles */
+        .card-content .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            background-color: transparent;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid #BB86FC;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Add box around the content */
+        .content-box {
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            width: 100%; /* Adds scroll if content overflows */
+            overflow: auto;
+        }
+        .content-box::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+
+.content-box::-webkit-scrollbar-track {
+    background: transparent; /* Transparent scrollbar track */
+}
+
+.content-box::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2); /* Slightly visible scrollbar thumb */
+    border-radius: 10px; /* Rounded scrollbar */
+}
+
+.content-box::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4); /* More visible on hover */
+}
+
+/* For Firefox */
+.content-box {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+        /* Justify text inside the content box */
+        .content-box p {
+            text-align: justify;
+	line-height: 1.8; /* Adjust line height for better spacing between lines */
+    margin-bottom: 1rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            padding: 10px 15px;
+            border: 1px solid #BB86FC;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+            border-color: #BB86FC;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                justify-content: center;
+            }
+        }
+
+
+        @font-face {
+            font-family:pa;
+            src: url(Panton-Trial-Black.ttf);
+        }   
+    </style>
+</head>
+<body>
+
+    <div class="course-container">
+        <div class="card">
+            <!-- Left: Image Section -->
+            <img src="high-tech-ar-headset-surrounded-by-bright-blue-neon-colors.jpg" alt="Course Image">
+
+            <!-- Right: Content Section -->
+            <div class="card-content">
+                <h2 id="event-title">Event Title</h2>
+                <br>
+                <div class="price"> <span id="event-price">0</span></div>
+
+                <!-- Navigation buttons -->
+                <div class="navbar">
+                    <a data-content="about">About</a>
+                    <a data-content="schedule">Schedule</a>
+                    <a data-content="incentives">Rules</a>
+                    <a data-content="accommodation">Venue</a>
+                    <a data-content="contact">Contact</a>
+                </div>
+
+                <!-- Content to be updated, wrapped in the content box -->
+                <div class="content-box">
+                    <p id="content">
+                        "Web development refers to the creating, building, and maintaining of websites."
+                    </p>
+                </div>
+
+                <!-- Action buttons -->
+                <div class="buttons">
+                    <button>REGISTER</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Define the content for each event, including all sections (About, Schedule, Incentives, etc.)
+        const eventData = {
+            1: {
+                title: "Code conquest",
+                
+                image: "9f767695b2a343c5850b550fbfb589fe.jpeg.jpg",
+                sections: {
+                    about: "A coding and debugging competition that challenges participants to solve real-world problems.",
+                    schedule: "17/10/2024 <br>11:30 AM onwards",
+                    incentives: "▪️Each team must consist of 2 members <br>▪️The contest will have preliminary and final round. <br>▪️ Discipline must be maintained among the participants. <br>▪️Judgement based on time complexity and accuracy of the output. <br>▪️The decision of the organizers is final and binding <br>▪️ Follow campus rules and avoid any activities that may disrupt other events.",
+                    accommodation: "SI Lab",
+                    contact: "▪️ Swathy Dinesh :9446162339 <br>"
+                }
+            },
+            2: {
+                title: "Virtual Victory",
+                
+                image: "sanji.jpeg",
+                sections: {
+                    about: "A competitive gaming event where participants showcase their gaming skills in a virtual battleground ",
+                    schedule: "7/10/2024 <br>11:30 AM onwards",
+                    incentives: "▪️ Individual event <br>▪️All gaming equipment and setup will be provided by the organizers <br>▪️ Participants must adhere to the time slots provided <br>▪️Use of any cheats or hacks will result in immediate disqualification <br>▪️Any form of disrespectful behaviour towards opponents or officials will lead to a ban from the competition <br>▪️The decision of the organizers is final and binding <br>▪️Follow campus rules and avoid any activities that may disrupt other events.",
+                    accommodation: "AI lab or SI lab",
+                    contact: "▪️ Sojose Skaria : 8800692526 <br> ▪️ Vaishan C Shivashankaran :  8138886291<br>"
+                }
+            },
+            3: {
+                title: "Da Vinci",
+                
+                image: "sanji.jpeg",
+                sections: {
+                    about: "An exciting design competition to unleash creativity and design thinking.",
+                    schedule: "The event is scheduled to run from 9 AM to 5 PM on all weekdays.",
+                    incentives: "▪️ Individual event <br>▪️Designs must be created within the given time frame <br>▪️Use of pre-made templates is not allowed, originality is the key <br>▪️ Participants can use tools like Photoshop, Illustrator, or other design software <br>▪️Judges will evaluate based on creativity, relevance to the theme, and visual impact <br>▪️ Plagiarism of any kind will result in disqualification <br>▪️The decision of the organizers is final and binding <br>▪️ Follow campus rules and avoid any activities that may disrupt other events.",
+                    accommodation: "Accommodation will be arranged at the event venue for all participants.",
+                    contact: "▪️ Devdutt S :  <br> ▪️ Gokul Kiran R :  7736526607<br>"
+                }
+            },
+            4: {
+                title: "WhatsApp Event",
+                
+                image: "sanji.jpeg",
+                sections: {
+                    about: "Join us for this special event communicated via WhatsApp. Stay tuned for details!",
+                    schedule: "More information about the schedule will be shared soon.",
+                    incentives: "Stay tuned for exciting giveaways and exclusive offers.",
+                    accommodation: "Accommodation details will be provided once you register.",
+                    contact: "For more information, email us at info@whatsapp-event.com."
+                }
+            }
+        };
+
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Get the event ID from the URL, parse it as an integer
+        const eventId = parseInt(getUrlParameter('id'), 10);
+
+        // Get the event data for the selected event
+        const eventDetails = eventData[eventId];
+
+        // Get the content area where text will be updated
+        const contentArea = document.getElementById('content');
+
+        // Update the event page content dynamically when the page loads
+        if (eventDetails) {
+    document.getElementById('event-title').textContent = eventDetails.title;
+    document.getElementById('event-price').textContent = eventDetails.price;
+    document.querySelector('.card img').src = eventDetails.image; // Update the image
+    contentArea.innerHTML = eventDetails.sections.about; // Default to 'about' section
+} else {
+    document.getElementById('event-title').textContent = "Event Not Found";
+    contentArea.textContent = "Sorry, we couldn't find the details for this event.";
+}
+
+        // Get all navbar links
+        const navbarLinks = document.querySelectorAll('.navbar a');
+
+        // Function to handle navbar click and update content
+        navbarLinks.forEach(link => {
+    link.addEventListener('click', function () {
+        const contentType = this.getAttribute('data-content');
+        // Use innerHTML here as well to allow for HTML formatting
+        contentArea.innerHTML = eventDetails.sections[contentType];
+    });
+});
+    </script>
+
+</body>
+</html>

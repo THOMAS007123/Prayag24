@@ -13,9 +13,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>    
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/> 
+    <link href="https://fonts.googleapis.com/css2?family=Gajraj+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Kannada:wght@100..900&display=swap" rel="stylesheet">
+
 <style>
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
         #loader-wrapper {
             position: fixed;
             top: 0;
@@ -32,7 +36,7 @@
             visibility: visible;
         }
 #loader {
-    background-image: url('AI Loader Exploration - GIF.gif'); /* Your GIF file */
+    background-image: url('Loader Website.gif'); /* Your GIF file */
     background-size: cover;
 	background-position:center; /* Ensure the GIF covers the div */
     width: 300px; /* Set the width of the loader */
@@ -89,8 +93,8 @@ body.loaded #loader-wrapper {
             height: 150px;
             width: 60%;
             margin: 0 auto;
-            bottom: 0;
-            transform: translateX(25%);
+            bottom: 2%;
+            transform: translateX(30%);
         }
 
         .logos:before,
@@ -116,16 +120,107 @@ body.loaded #loader-wrapper {
         .logos:hover .logos-slide {
             animation-play-state: paused;
         }
-
         .logos-slide {
-            display: inline-block;
-            animation: 20s slide infinite linear;
-        }
+    display: inline-block;
+    vertical-align: middle;
+    gap: 40px; /* Add a gap between the images */
+    animation: 20s slide infinite linear;
+}
 
-        .logos-slide img {
-            height: 30px;
-            margin: 0 20px;
-        }
+.logos-slide img {
+    margin: 0 20px;
+    vertical-align: middle; /* Ensures images are vertically centered within inline-block container */
+}
+.img1 {
+    height: 150px;
+}
+
+.img2 {
+    height: 80px;
+    /* You can control the gap between img1 and img2 using margin if you need additional space */
+   /* Adds extra space specifically for img2 */
+}
+.img3{
+    height: 60px;
+}
+.img4{
+    height: 80px;
+
+}
+.img5{
+    height: 60px;
+}
+
+        @media (max-width: 600px) {
+    .logos {
+        height: 100px;           /* Reduced height for smaller screens */
+        width: 100%;             /* Full width for mobile */
+        transform: translateX(0); /* Center the container */
+        bottom: 7%;              /* Adjust the vertical position */
+    }
+    .logos-slide img {
+        vertical-align: middle;           /* Smaller image size */
+        margin: 0 10px;          /* Reduced space between images */
+    }
+
+    .img1 {
+    height: 80px;
+}
+
+.img2 {
+    height: 40px;
+    /* You can control the gap between img1 and img2 using margin if you need additional space */
+   /* Adds extra space specifically for img2 */
+}
+.img3{
+    height: 30px;
+}
+.img4{
+    height: 40px;
+
+}
+.img5{
+    height: 30px;
+}
+
+}
+
+/* Tablets (min-width: 601px) and (max-width: 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+    .logos {
+        height: 120px;           /* Medium height for tablets */
+        width: 85%;              /* Wider than mobile but narrower than desktop */
+        transform: translateX(7.5%); /* Center by shifting slightly */
+        bottom: 5%;              /* Slight adjustment for positioning */
+    }
+    .logos-slide img {
+        vertical-align: middle;            /* Medium-sized images for tablets */
+        margin: 0 15px;          /* Space adjusted accordingly */
+    }
+    .img1 {
+    height: 100px;
+}
+
+.img2 {
+    height: 60px;
+    /* You can control the gap between img1 and img2 using margin if you need additional space */
+   /* Adds extra space specifically for img2 */
+}
+.img3{
+    height: 50px;
+}
+.img4{
+    height: 60px;
+
+}
+.img5{
+    height: 50px;
+}
+
+}
+
+/* Desktops (min-width: 993px) */
+
 
         #logo {
             border: 0px solid rgba(255, 255, 255, 0.5);
@@ -165,14 +260,78 @@ body.loaded #loader-wrapper {
             background-clip: text;
             -webkit-background-clip: text;
             letter-spacing: 2px;
-           font-family: hevi;
- 
-            font-size: 150pt;
+            
             text-align: center;
             bottom: 8%;
             user-select: none;
         }
 
+        /* Define specific font-families for different languages */
+        .font-english {
+            font-family: 'Hevi', sans-serif;
+            font-size: 150pt;
+        }
+
+        .font-hindi {
+            font-family: "Gajraj One", sans-serif;
+            font-size: 150pt;
+  
+  font-style: normal;
+        }
+
+        .font-malayalam {
+            font-family: hev;
+            font-size: 150pt;
+        }
+
+        .font-kannada {
+            font-family: ll;
+            font-size: 150pt;
+        }
+
+        .font-tamil {
+            font-family:kan;
+            font-size:180pt;
+        }
+
+        @media (max-width: 600px) {
+            #text1,
+            #text2 {
+                bottom : 70%;
+                
+            }
+        }
+        @media (max-width: 600px) {
+            .font-english {
+                font-size: 19vw;
+            }
+            .font-hindi {
+                font-size: 25vw;
+            }
+            .font-malayalam {
+                font-size: 27vw;
+            }
+            .font-tamil{
+                font-size: 29vw;
+            }
+        }
+        
+        @media (min-width: 600px) and (max-width: 900px) {
+    .font-english {
+        font-size: 20vw;
+    }
+    .font-hindi {
+        font-size: 22vw;
+    }
+    .font-malayalam {
+        font-size: 23vw;
+    }
+    .font-tamil {
+        font-size: 24vw;
+    }
+}
+        
+        
 .logo span {
             color: #fff;
             font-size: 20px;
@@ -183,7 +342,7 @@ body.loaded #loader-wrapper {
             white-space: nowrap; /* Prevent text from wrapping */
             overflow: hidden; /* Hide overflow to create typing effect */
             display: inline-block;
-            animation: typing 4s steps(30, end) forwards, blink 0.75s step-end 4s;
+            animation: typin 4s steps(30, end) forwards, blink 0.75s step-end 4s;
         }
 
 
@@ -204,12 +363,18 @@ body.loaded #loader-wrapper {
             z-index: 1;
         }
 
+        @media (max-width: 600px) {
+            .containermain {
+                height: 95vh;  /* Reduced height for mobile screens */
+            }
+        }
+
         .containertext {
             height: 40vh;
             width: 100%;
             background: black;
             position: relative;
-            display: flex;
+            display:block;
             justify-content: center;
             align-items: center;
             padding: 20px;
@@ -259,6 +424,20 @@ body.loaded #loader-wrapper {
             font-family: hevi;
             src: url(Heavitas.ttf);
         }
+        @font-face {
+            font-family: kan;
+            src: url(TAMIL-UNI004.ttf);
+        }
+
+        @font-face {
+            font-family: hev;
+            src: url(MLU-Sabari.ttf);
+        }
+
+        @font-face {
+            font-family: ll;
+            src: url(.ttf);
+        }
 
         .navbar {
             display: flex;
@@ -273,6 +452,111 @@ body.loaded #loader-wrapper {
             top: 7%;
             left: 23%;
         }
+        @media (max-width: 600px) {
+            .navbar {
+                width: 80%;
+                top: 15%;
+                left: 10%;
+            }
+        }
+        
+        /* Medium devices (tablets, 600px to 1200px) */
+        @media (min-width: 601px) and (max-width: 1200px) {
+            .navbar {
+                width: 70%;
+                height: 10%;
+                top: 8%;
+                left: 15%;
+            }
+        }
+        
+        /* Large devices (laptops/desktops, 1200px and up) */
+        @media (min-width: 1201px) {
+            .navbar {
+                width: 53%;
+                height: 10%;
+                top: 7%;
+                left: 23%;
+            }
+        }
+        @media (max-width: 600px) {
+            .contact-button {
+                font-size: 10px;
+                padding: 8px 16px;
+            }
+        }
+        
+        /* Medium devices (tablets, 600px to 1200px) */
+        @media (min-width: 601px) and (max-width: 1200px) {
+            .contact-button {
+                font-size: 12px;
+                padding: 9px 18px;
+            }
+        }
+        
+        /* Large devices (laptops/desktops, 1200px and up) */
+        @media (min-width: 1201px) {
+            .contact-button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+
+
+        
+.contact-button1 {
+            display: none;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        /* Show image button only on small devices (phones) */
+        @media (max-width: 600px) {
+            .contact-button {
+                display: none; /* Hide the text button on phones */
+            }
+
+            .contact-button1 {
+                display: inline-block; /* Show the image button on phones */
+            }
+
+            .contact-button1 img {
+                width: 40px; /* Adjust the width of the image */
+                height: auto;
+		right:5%;
+		top:25%;
+		position:absolute; /* Maintain the aspect ratio */
+            }
+        }
+
+        /* Show text button only on tablets and larger devices */
+        @media (min-width: 601px) {
+            .contact-button1 {
+                display: none; /* Hide the image button on tablets and larger */
+            }
+
+            .contact-button {
+                display: inline-block; /* Show the text button */
+            }
+        }
+        
+        /* Medium devices (tablets, 600px to 1200px) */
+        @media (min-width: 601px) and (max-width: 1200px) {
+            .contact-button {
+                font-size: 12px;
+                padding: 9px 18px;
+            }
+        }
+        
+        /* Large devices (laptops/desktops, 1200px and up) */
+        @media (min-width: 1201px) {
+            .contact-button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+
 
         .contact-button {
             border: none;
@@ -290,12 +574,16 @@ body.loaded #loader-wrapper {
             background-color: #7e4cc9;
         }
 
+
+
+
+
         h2 {
             text-align: center;
             opacity: .5;
             top: 57%;
             left: 46%;
-            font-size: 30px;
+            font-size: 28px;
             position: absolute;
             color: transparent;
             background-image: linear-gradient(white, white);
@@ -303,6 +591,33 @@ body.loaded #loader-wrapper {
             -webkit-background-clip: text;
             font-weight: bold;
             font-family: "Oswald", sans-serif;
+        }
+
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 6vw;
+                top: 55%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        /* Medium devices (tablets, 600px to 1200px) */
+        @media (min-width: 601px) and (max-width: 1200px) {
+            h2 {
+                font-size: 3.2vw;
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        /* Large devices (laptops/desktops, 1200px and up) */
+        @media (min-width: 1201px) {
+            h2 {
+                font-size: 30px;
+                top: 57%;
+                left: 46%;
+                transform: none;
+            }
         }
 
         .b {
@@ -321,7 +636,7 @@ body.loaded #loader-wrapper {
             align-items: center;
             position: absolute;
             top: 68%;
-            left: 46%;
+            left: 45.9%;
             cursor: pointer;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
             backdrop-filter: blur(10px);
@@ -330,6 +645,27 @@ body.loaded #loader-wrapper {
             border: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
+
+        @media (max-width: 600px) {
+            .b {
+                font-size: 4.5vw;
+                top: 68%;
+                left: 50.5%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        /* Medium devices (tablets, 600px to 1200px) */
+        @media (min-width: 601px) and (max-width: 1200px) {
+            .b {
+                font-size: 2vw;
+                top: 70%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        /* Large devices (laptops/desktops, 1200px and up) */
+       
+
 
         .hcontainer {
             position: relative;
@@ -357,20 +693,72 @@ body.loaded #loader-wrapper {
             filter: blur(0);
         }
 
-        .rise {
-            bottom: calc(50% - 12.5% + -30px);
-            opacity: 1;
+        @media screen and (max-width: 600px) {
+            .video-wrapper {
+                width: 70%; /* Full width on smaller screens */
+                left: 50%;
+                bottom: -50%;
+            }
+                .rise {
+                bottom: calc(50% - 12.5% + -30px);
+                opacity: 1;
+
+            }
+
+
+            .move-back {
+                left: 50%;
+                transform: translateX(-50%) scale(1.75);
+                filter: blur(10px);
+            }
         }
 
-        .move-left {
-            left: calc(25% - 50px);
+        /* For medium screens (tablets) */
+        @media screen and (min-width: 601px) and (max-width: 1024px) {
+            .video-wrapper {
+                width: 40%; /* Larger width for tablets */
+                bottom: -75%;
+            }
+            .rise {
+                bottom: calc(50% - 12.5% + -30px);
+                opacity: 1;
+            }
+
+            .move-left {
+                left: calc(25% - 50px);
+            }
+
+            .move-back {
+                left: 50%;
+                transform: translateX(-50%) scale(1.75);
+                filter: blur(10px);
+            }
         }
 
-        .move-back {
-            left: 50%;
-            transform: translateX(-50%) scale(1.75);
-            filter: blur(10px);
+        /* For large screens (desktops) */
+        @media screen and (min-width: 1025px) {
+            .video-wrapper {
+                width: 30%; /* Adjust for larger screens */
+                bottom: -100%;
+            }
+            .rise {
+                bottom: calc(50% - 12.5% + -30px);
+                opacity: 1;
+            }
+
+            .move-left {
+                left: calc(25% - 50px);
+            }
+
+            .move-back {
+                left: 50%;
+                transform: translateX(-50%) scale(1.75);
+                filter: blur(10px);
+            }
         }
+
+
+
 
         .scroll-counter {
             position: absolute;
@@ -399,8 +787,44 @@ body.loaded #loader-wrapper {
             opacity: 0;
             width:28%;
             transition: opacity 1s ease-in-out;
-
+		
         }
+
+        /* For small screens (mobile devices) */
+        @media screen and (max-width: 600px) {
+            .text-container {
+                top: 50%; /* Centered more vertically */
+                left: 50%; /* Centered horizontally */
+                font-size: 18px; /* Smaller font for readability on small screens */
+                width: 86%; /* Wider to fit more text */
+                z-index: 2;
+		
+		
+            }
+	 
+ .k {
+    text-align: center;
+    left: 50%;
+    transform: translateX(167%);
+    font-family:fantasy;
+  }
+}
+
+            
+
+            
+        
+
+        /* For medium screens (tablets) */
+        @media screen and (min-width: 601px) and (max-width: 1024px) {
+            .text-container {
+                top: 47%; /* Adjust slightly */
+                left: calc(70%); /* Move slightly left for better balance */
+                font-size: 28px; /* Adjust font size */
+                width: 42%; /* Medium width */
+            }
+
+                    }
 
         .subheading {
              margin-top: 10px;
@@ -410,12 +834,12 @@ body.loaded #loader-wrapper {
 	opacity:.5;
         }
         .subheading {
-    text-align:left;
+    text-align:justify;
 
 	
 }
 
-k{
+.k{
 
 font-family:fantasy;
 text-align:left;
@@ -451,9 +875,9 @@ left:1%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
 	width:100%;
-    background-color:black;
+    background-color:#000;
     color: white;
     overflow: hidden;
 }
@@ -466,7 +890,7 @@ left:1%;
 }
 .swiper-slide{
     position: relative;
-    width: 450px;
+    width: 400px;
     aspect-ratio: 3/4;
     border-radius: 14px;
     border: 1px solid rgba(177,177,177,0.4);
@@ -478,6 +902,16 @@ left:1%;
     object-fit: cover;
     border-radius: inherit;
     user-select: none;
+}
+.swiper-slide {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Glowing effect for the active slide */
+.swiper-slide-active {
+    box-shadow: 0 30px 40px -30px rgba(127, 17, 224, 0.8); /* Glow only at the bottom */
+    border-radius: 10px; /* Optional: smooth corners */
+    transform: scale(1.1); /* Slight zoom for emphasis */
 }
 .title{
     position: absolute;
@@ -502,15 +936,15 @@ left:1%;
 }
 .swiper-slide-active .title{
     bottom: -10px;
-    box-shadow: 0 20px 30px 2px rgba(127, 17, 224, 0.6);
+    box-shadow: 20px 20px 30px 2px rgba(127, 17, 224, 0.6);
 }
 .swiper-pagination {
-    --swiper-pagination-bottom: -6px;
+    --swiper-pagination-bottom: 0px;
 }
 
 .swiper-pagination-bullet {
-    width: 14px;
-    height: 14px;
+    width: 10px;
+    height: 10px;
     background-color: #fff;
     border-radius: 50%;
     transition: all 0.3s ease-in-out;
@@ -529,7 +963,7 @@ left:1%;
         }
 
 .swiper-pagination-bullet-active {
-    width: 32px;
+    width: 25px;
     background-color: rgba(127, 17, 224, 1);
     border-radius: 14px;
 }
@@ -593,7 +1027,7 @@ left:1%;
             background-color: black;
             color: #b3b3b3;
             padding: 40px;
-	; /* Reduced padding for mobile */
+	 /* Reduced padding for mobile */
             display: flex;
             flex-wrap: wrap; /* Allow wrapping */
             justify-content: space-between;
@@ -608,7 +1042,7 @@ left:1%;
             font-size: 1rem; /* Responsive font size */
         }
         .footer .middle i {
-            font-size: 60px; /* Adjust icon size */
+            font-size: 50px; /* Adjust icon size */
             margin: 0 25px; /* Adjust margin */
             color: #b3b3b3; /* Set icon color */
             transition: color 0.3s; /* Smooth color change */
@@ -638,6 +1072,10 @@ left:1%;
             text-decoration: none;
             margin: 0 10px; /* Space between links */
         }
+        a{
+            text-decoration: none;
+            color:white;
+        }
 
         /* Media Queries for Responsive Design */
         @media (max-width: 768px) {
@@ -656,6 +1094,74 @@ left:1%;
                 margin: 5px 0; /* Margin for each item */
             }
         }
+        @media (max-width: 600px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;  /* Reduce padding on mobile */
+    }
+    .footer .left, .footer .middle, .footer .right {
+        flex: 1 1 100%;  /* Full width for each section */
+        margin: 10px 0;  /* Space between sections */
+    }
+    .footer .right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Center items vertically */
+    gap: 10vw; /* Add space between elements in the .right container */
+    }
+    .footer .left{
+        height: 40%;
+	
+    }
+    .footer .middle{
+        font-size: 10vw;
+        height: 40%;
+    }
+    .footer .middle i {
+            font-size: 30px; /* Adjust icon size */
+        }
+    .footer-bottom {
+        flex-direction: column;  /* Stack elements vertically */
+        text-align: center;
+        padding: 10px 20px;  /* Reduce padding on mobile */
+    }
+    .footer-bottom div {
+        margin: 5px 0;  /* Adjust margin for footer items */
+    }
+}
+
+    /* Tablets (min-width: 601px) and (max-width: 992px) */
+    @media (min-width: 601px) and (max-width: 992px) {
+        .footer {
+            padding: 30px;  /* Medium padding for tablet */
+        }
+        .footer .left, .footer .middle, .footer .right {
+            flex: 1 1 45%;  /* Wider sections for tablets */
+        }
+        .footer-bottom {
+            padding: 15px 25px;  /* Retain padding but allow wrapping */
+        }
+        .footer .right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Center items vertically */
+    gap: 10vw; /* Add space between elements in the .right container */
+    }
+    }
+
+    /* Desktops (min-width: 993px) */
+    @media (min-width: 993px) {
+        .footer {
+            padding: 40px;  /* Original padding for desktops */
+        }
+        .footer .left, .footer .middle, .footer .right {
+            flex: 1 1 30%;  /* Original layout for larger screens */
+        }
+        .footer-bottom {
+            padding: 15px 25px;  /* Original padding */
+        }
+    }
 
 	.fixed-video {
     position: fixed; /* Make the video fixed on screen */
@@ -663,6 +1169,14 @@ left:1%;
     left: 50%; /* Horizontally centered */
     transform: translateX(-50%) scale(1.75); /* Keep the enlarged size */
     filter: blur(10px); /* Maintain the blur effect */
+}
+
+@media screen and (max-width: 600px) {
+    .fixed-video {
+        top: calc(50% - 20% -160px); /* Adjust for smaller height */
+        transform: translateX(-50%) scale(1.2); /* Reduce scaling for smaller screens */
+        filter: blur(px); /* Lessen the blur effect for clarity */
+    }
 }
 
 .video {
@@ -685,20 +1199,53 @@ left:1%;
 
 
 .scroll-text {
-    font-size: 35px;
+    font-size: 33px;
     font-family: 'Arial', sans-serif;
+    width:75%;
+    line-height:1.3em;
     text-align: center;
+    justify-content: center;
     position: absolute; 
     top: 40%; 
     left: 50%;
     transform: translate(-50%, -50%) scale(1.1, 1.1); /* Stretch both horizontally and vertically */
     color: #8a2be2; 
-    padding: 20px 0;
+    padding: 0px 0;
     opacity: 0; 
     transition: color 2s ease, opacity 0.5s ease;
     letter-spacing: 1px; 
     z-index: 2;
 }
+@media (max-width: 600px) {
+        .scroll-text {
+            font-size: 6vw;
+            height: 30%;
+            top: 15%; 
+            left: 50%;
+            width:80%;
+        }
+    }
+    
+    /* Medium devices (tablets, 600px to 1200px) */
+    @media (min-width: 601px) and (max-width: 1200px) {
+        .scroll-text {
+            font-size: 3vh;
+            top: 30%; 
+            left: 50%;
+        }
+    }
+    
+    /* Large devices (laptops/desktops, 1200px and up) */
+    @media (min-width: 1201px) {
+        .scroll-text {
+            font-size: 35px;
+            top: 40%; 
+            left: 50%;
+            width: 67%;
+        }
+    }
+    
+    /* Ensure visibility class remains */
 
     .visible {
       opacity: 1; /* Fully visible */
@@ -713,6 +1260,44 @@ left:1%;
       position: relative;
     }
 
+@media (max-width: 600px) {
+    .swiper {
+        padding: 25px 95px;
+    }
+    .swiper-slide {
+        width: 300px;
+        aspect-ratio: 3/4;
+    }
+.eventcontainer{
+   
+    height: 85vh;
+	
+   
+}
+
+
+
+}
+.icon{
+color: #f5f3e6; 
+font-weight: bold; 
+font-size: 1.5rem; 
+margin-top: 10px;
+}
+@media (max-width: 600px) {
+.icon{
+
+font-size: 1rem; 
+margin-top: 5px;
+}
+.get{
+margin-top:20px;}
+}
+.get{
+margin-left: 2px;
+
+
+}
 
 
     </style>
@@ -722,14 +1307,19 @@ left:1%;
         <div id="loader"></div>
     </div>
 
-    <div class="containermain">
+    <div class="containermain"id="homelink">
         <div class="navbar">
             <div class="logo">
                 <img src="Logo png without text.png" alt="Logo">
                 <span>Prayag24.live</span>
             </div>
             <div class="nav-buttons">
-                <button class="contact-button">SEARCH</button>
+                <a href="#foots">
+                <button class="contact-button">CONTACT</button>
+		<button class="contact-button1">
+                    <img src="f.png">
+        </button>
+            </a>
             </div>
         </div>
         <div id="container">
@@ -745,36 +1335,34 @@ left:1%;
             </defs>
         </svg>
         
-        <h2>17-18 OCT</h2>
+        <h2>16-17 OCT</h2>
+        <a href="#evento">
         <input type="button" class="b" value="REGISTER">
-        <div class="logos">
+    </a>
+        <div class="logos"id="sponlink">
       <div class="logos-slide">
-        <img src="3m.svg" />
-        <img src="barstool-store.svg" />
-        <img src="budweiser.svg" />
-        <img src="buzzfeed.svg" />
-        <img src="forbes.svg" />
-        <img src="macys.svg" />
-        <img src="menshealth.svg" />
-        <img src="mrbeast.svg" />
+        <img  class="img1"src="2n6Z69SD4WbMtIN23m8IKAJt7f5.svg"/>
+        <img class="img2" src="Panet earthpng.svg"/>
+        <img class="img3" src="guardianpng.svg"/>
+        <img class="img4" src="osaka.svg"/>
+        <img class="img5" src="logo_gradient_copy.svg"/>
+        
       </div>
 <div class="logos-slide">
-        <img src="3m.svg" />
-        <img src="barstool-store.svg" />
-        <img src="budweiser.svg" />
-        <img src="buzzfeed.svg" />
-        <img src="forbes.svg" />
-        <img src="macys.svg" />
-        <img src="menshealth.svg" />
-        <img src="mrbeast.svg" />
+    <img  class="img1"src="2n6Z69SD4WbMtIN23m8IKAJt7f5.svg"/>
+        <img class="img2" src="Panet earthpng.svg"/>
+        <img class="img3" src="guardianpng.svg"/>
+        <img class="img4" src="osaka.svg"/>
+        <img class="img5" src="logo_gradient_copy.svg"/>
+        
       </div>
     </div>
 </div>
 <br><br><br>
-    <div class="containertext">
+    <div class="containertext"id="aboutlink">
 
      <div class="scroll-text">
-     The Department of Computer Science and Engineering (AI & Data Science) nurtures future leaders to explore machine learning, data analytics, and software engineering.
+     The Department of Computer Science and Engineering (Artificial Intelligence & Data Science) nurtures future leaders to explore machine learning, data analytics, and software engineering.
     </div>
 </div>
 
@@ -787,13 +1375,13 @@ left:1%;
         <div class="text-container" id="textContainer">
             <k>PRAYAG 24</k><br>
 
-            <div class="subheading">Prayag is a flagship event organized as a part of the outreach program by Adi Shankara Institute of Engineering and Trchnology, Department of Artifical Intelligence and Data Science, aimed at introducing high school students to the exiciting field of Artifical Intelligence.This fest is designed to make AI accessible and engaging foryoung learners through interactive workshops, live demonstartions, and hands-on experiences.
+            <div class="subheading">Prayag is a premier event organized by the Department of Artificial Intelligence and Data Science at Adi Shankara Institute of Engineering and Technology as part of their outreach program. The event's primary goal is to introduce high school students to the fascinating world of Artificial Intelligence. Through interactive workshops, live demonstrations, and hands-on activities, this festival aims to make AI accessible and engaging for young learners, sparking their interest and curiosity in this exciting field.
 
         </div>
     </div>
 </div>
 
-    <div class="eventcontainer">
+    <div class="eventcontainer" id="evento">
 
 
     <div class="swiper">
@@ -801,63 +1389,81 @@ left:1%;
         <div class="swiper-slide">
             <a href="events.html?id=1">
                 <img src="Taylor Swift poster.jpeg" alt="">
-                <div class="title"></div>
+                
             </a>
         </div>
         <div class="swiper-slide">
             <a href="events.html?id=2">
                 <img src="Purple aesthetic (By Ratto).jpeg" alt="">
-                <div class="title"></div>
+                
             </a>
         </div>
         <div class="swiper-slide">
             <a href="events.html?id=3">
                 <img src="t.jpeg" alt="">
-                <div class="title"></div>
+                
             </a>
         </div>
         <div class="swiper-slide">
             <a href="events.html?id=4">
                 <img src="WhatsApp Image 2024-10-01 at 22.37.46_8653b5e4.jpg" alt="">
-                <div class="title"></div>
+                
             </a>
         </div>
     </div>
     <div class="swiper-pagination"></div>
+    <br><br>
 </div>
 
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<div class="footercont">
+<br><br><br><br>
+<div class="footercont"id="foots">
 <footer>
         <div class="footer">
             <div class="left">
-                <p style="margin-left: 2px;">Get in touch</p>
-                <p style="color: #f5f3e6; font-weight: bold; font-size: 2.5rem; margin-top: 10px;">ASIET@.ac.in</p>
-            </div>
+                <p class="get">Get in touch</p>
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=prayag24@adishankara.ac.in" target="_blank">
+    <p class="icon">prayag24@adishankara.ac.in</p>
+</a>
+		
+                            </div>
             <div class="middle">
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-linkedin"></i>
-                <i class="fab fa-facebook"></i>
+ <a href="tel:+91 9207737789">
+                    <i class="fas fa-phone"></i> <!-- Phone icon -->
+                </a>
+                <a href="https://www.instagram.com/_prayag_24?utm_source=qr&igsh=MXNtbW1qbG11bnY0dQ==">
+                <i class="fab fa-instagram"></i></a>
+                <a href="https://maps.app.goo.gl/9LdDB4kk9MnBEPBZ9">
+                    <i class="fas fa-map-marker-alt"></i> <!-- Map marker icon -->
+            </a>
+             
             </div>
             <div class="right">
                 <div>
+                    <a href="#homelink">
                     <p style="font-size: 1rem;">Home</p>
+                </a>
                 </div>
                 <div>
+                    <a href="#evento">
                     <p style="font-size: 1rem;">Event</p>
+                </a>
                 </div>
                 <div>
+                    <a href="#aboutlink">
                     <p style="font-size: 1rem;">About</p>
+                </a>
                 </div>
-<div>
-                    <p style="font-size: 1rem;">Sponsers</p>
+                <div>   
+                    <a href="#sponlink">                
+                    <p style="font-size: 1rem;">Sponsors</p>
+                </a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
             <div style="flex: 1; display: flex; align-items: center;">
-                <p style="margin: 0;">©2024 - Prayag ASIET</p>
+                <p style="margin: 0;">©2024 - Prayag</p>
             </div>
             <div style="flex: 1; text-align: center;">
                 <a href="team.html" style="color: #b3b3b3; text-decoration: none;">Developed by PRAYAG24 Team</a>
@@ -891,16 +1497,65 @@ var swiper = new Swiper(".swiper", {
         modifier: 1,
         slideShadows: true,
     },
-    on: {
-        click(event) {
-            swiper.slideTo(this.clickedIndex);
-        },
-    },
     pagination: {
         el: ".swiper-pagination",
     },
-});
+    breakpoints: {
+        // Mobile view settings
+        0: {
+            slidesPerView: 1,
+            centeredSlides: true,
+            coverflowEffect: {
+                stretch: 20,
+                depth: 100,
+            },
+        },
+        // Tablet view settings
+        768: {
+            slidesPerView: 1.5,
+            centeredSlides: true,
+            coverflowEffect: {
+                stretch: 40,
+                depth: 200,
+            },
+        },
+        // Desktop view settings
+        1024: {
+            slidesPerView: "auto",
+            centeredSlides: true,
+            coverflowEffect: {
+                stretch: 80,
+                depth: 350,
+            },
+        }
+    },
+    on: {
+        slideChange: function () {
+            // Disable all links initially
+            document.querySelectorAll(".swiper-slide a").forEach(link => {
+                link.style.pointerEvents = "none";
+            });
 
+            // Enable link for active slide
+            const activeSlide = this.slides[this.activeIndex];
+            const activeLink = activeSlide.querySelector("a");
+            if (activeLink) {
+                activeLink.style.pointerEvents = "auto";
+            }
+        },
+        click: function (event) {
+            const clickedIndex = this.clickedIndex;
+
+            // Check if the clicked slide is different from the active slide
+            if (clickedIndex !== this.activeIndex) {
+                // Use a slight delay for a smoother experience on mobile
+                setTimeout(() => {
+                    this.slideTo(clickedIndex);
+                }, 100); // Adjust delay as needed (100ms works well for mobile)
+            }
+        },
+    },
+});
 
         window.addEventListener('scroll', function() {
             const container = document.getElementById('containertext');
@@ -920,77 +1575,90 @@ var swiper = new Swiper(".swiper", {
             }
         });
 
-        const elts = { text1: document.getElementById("text1"), text2: document.getElementById("text2") };
-        const texts = ["Prayag", "പ്രയാഗ്", "प्रयाग ", "ಪ್ರಯಾಗ ", "பிரயாக் "];
-        const morphTime = 1;
-        const cooldownTime = 0.25;
-        let textIndex = texts.length - 1;
-        let time = new Date();
-        let morph = 0;
-        let cooldown = cooldownTime;
+        const elts = {
+        text1: document.getElementById("text1"),
+        text2: document.getElementById("text2")
+    };
+    const texts = ["Prayag", "പ്രയാഗ്","பிரயாக்", "प्रयाग"];
+    const languages = ["font-english", "font-malayalam", "font-tamil", "font-hindi"]; // Map font classes to texts
+    const morphTime = 1;
+    const cooldownTime = 0.25;
+    let textIndex = texts.length - 1;
+    let time = new Date();
+    let morph = 0;
+    let cooldown = cooldownTime;
+
+    elts.text1.textContent = texts[textIndex % texts.length];
+    elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+
+    function setFontFamily(textIndex) {
+        const currentFont = languages[textIndex % languages.length];
+        const nextFont = languages[(textIndex + 1) % languages.length];
+
+        elts.text1.className = currentFont;
+        elts.text2.className = nextFont;
+    }
+
+    function doMorph() {
+        morph -= cooldown;
+        cooldown = 0;
+        let fraction = morph / morphTime;
+
+        if (fraction > 1) {
+            cooldown = cooldownTime;
+            fraction = 1;
+        }
+
+        setMorph(fraction);
+    }
+
+    function setMorph(fraction) {
+        setFontFamily(textIndex); // Set font family based on language
+        elts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+        elts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+
+        fraction = 1 - fraction;
+        elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+        elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
 
         elts.text1.textContent = texts[textIndex % texts.length];
         elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+    }
 
-        function doMorph() {
-            morph -= cooldown;
-            cooldown = 0;
-            let fraction = morph / morphTime;
+    function doCooldown() {
+        morph = 0;
+        elts.text2.style.filter = "";
+        elts.text2.style.opacity = "100%";
+        elts.text1.style.filter = "";
+        elts.text1.style.opacity = "0%";
+    }
 
-            if (fraction > 1) {
-                cooldown = cooldownTime;
-                fraction = 1;
+    function animate() {
+        requestAnimationFrame(animate);
+        let newTime = new Date();
+        let shouldIncrementIndex = cooldown > 0;
+        let dt = (newTime - time) / 1000;
+        time = newTime;
+        cooldown -= dt;
+
+        if (cooldown <= 0) {
+            if (shouldIncrementIndex) {
+                textIndex++;
             }
 
-            setMorph(fraction);
+            doMorph();
+        } else {
+            doCooldown();
         }
+    }
 
-        function setMorph(fraction) {
-            elts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
-            elts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
-
-            fraction = 1 - fraction;
-            elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
-            elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
-
-            elts.text1.textContent = texts[textIndex % texts.length];
-            elts.text2.textContent = texts[(textIndex + 1) % texts.length];
-        }
-
-        function doCooldown() {
-            morph = 0;
-            elts.text2.style.filter = "";
-            elts.text2.style.opacity = "100%";
-            elts.text1.style.filter = "";
-            elts.text1.style.opacity = "0%";
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            let newTime = new Date();
-            let shouldIncrementIndex = cooldown > 0;
-            let dt = (newTime - time) / 1000;
-            time = newTime;
-            cooldown -= dt;
-
-            if (cooldown <= 0) {
-                if (shouldIncrementIndex) {
-                    textIndex++;
-                }
-
-                doMorph();
-            } else {
-                doCooldown();
-            }
-        }
-
-        animate();
+    animate();
 
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.body.classList.remove('loading');
                 document.body.classList.add('loaded');
-            }, 5000);
+            }, 3000);
         });
 
 const video = document.getElementById('scrollVideo');
@@ -1013,7 +1681,7 @@ if (scrollCount > 120) scrollCount = 120; // Cap scrollCount at 100
 // scrollCounter.innerText = `Scroll Count: ${scrollCount}`;
 
 // Handle video display based on scrollCount
-if (scrollCount >= 105) {
+if (scrollCount >= 100) {
     // Remove the video after the 99th scroll
     if (video.parentNode) {
         video.parentNode.removeChild(video);
@@ -1025,26 +1693,27 @@ if (scrollCount >= 105) {
     }
 }
 
-if (scrollCount >= 37) {
+if (scrollCount >= 50) {
     video.classList.add('rise');
     video.style.position = 'fixed';
 } else {
     video.classList.remove('rise');
 }
 
-if (scrollCount >= 55) {
+if (scrollCount >= 60) {
     video.classList.add('move-left');
-    textContainer.classList.add('text-reveal'); // Text starts to reveal after 55th scroll
+     // Text starts to reveal after 55th scroll
 } else {
     video.classList.remove('move-left');
+}
+
+if (scrollCount >= 75) {
+    textContainer.classList.add('text-reveal'); // Text starts to reveal after 55th scroll
+} else {
     textContainer.classList.remove('text-reveal'); // Ensure text is not revealed before 55th scroll
 }
 
-if (scrollCount >= 110) {
-    video.classList.add('move-back');
-} else if (scrollCount < 95) {
-    video.classList.remove('move-back');
-}
+
 
 if (scrollCount >= 80) {
     textContainer.classList.add('text-unreveal');
@@ -1054,13 +1723,13 @@ if (scrollCount >= 80) {
     textContainer.classList.add('text-reveal'); // Reveal text again when scrolling back above 55th scroll
 }
 
-if (scrollCount >= 74) {
+if (scrollCount >= 85) {
     document.body.style.overflow = 'auto'; // Ensure the page stays scrollable
     video.classList.add('fixed-video'); // Keep the video fixed in its final position
     scrollLock = false;
 }
 
-if (scrollCount < 74) {
+if (scrollCount < 85) {
     video.classList.remove('fixed-video'); // Remove fixed video class when scrolling up
 }
 
@@ -1110,7 +1779,7 @@ const textElement = document.querySelector('.scroll-text');
       const scrollPosition = scrollY / documentHeight;
 
       // Change text color based on scroll position
-      if (scrollPosition <= 0.23) {
+      if (scrollPosition <= 0.05) {
         textElement.style.color = '#8a2be2'; // Purple
         textElement.classList.remove('visible'); // Hide the text
       } else if (scrollPosition > 0.25 && scrollPosition <= 0.33) {
@@ -1123,6 +1792,8 @@ const textElement = document.querySelector('.scroll-text');
     });
 
 
+
+    
     </script>
 </body>
 </html>

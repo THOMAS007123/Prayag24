@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team 24</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+    }
+
+    .slider-container {
+      width: 80%; /* Adjusted width */
+      max-width: 1020px; /* Max width */
+      margin: 50px auto;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .slider-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      gap: 80px; /* Space between slides */
+      justify-content: center;
+    }
+
+    .slide {
+      border-radius: 0px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      background-color: #222;
+      color: #fff;
+      height: 420px; /* Increased height */
+      position: relative; /* To position text */
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%; /* Set height to fill the slide */
+      object-fit: cover; /* Maintain aspect ratio */
+      transition: transform 0.5s ease;
+    }
+
+    .slide .info {
+      position: absolute; /* Position text on top of the image */
+      bottom: 0px; /* Distance from bottom */
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background-color: rgba(34, 34, 34, 0.8); /* Background for text */
+    }
+
+    .slide h2 {
+      margin: 0;
+      font-size: 1.3em;
+      color: #fff; /* Text color */
+    }
+
+    /* Responsive styles */
+    @media (max-width: 1200px) {
+      .slider-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .slider-grid {
+        grid-template-columns: 1fr; /* 1 column for mobile devices */
+      }
+
+      .slider-container {
+        padding: 10px;
+      }
+
+      .slide {
+        margin-bottom: 20px; /* Add margin between slides on mobile */
+      }
+    }
+
+    /* Smaller screen font adjustments */
+    @media (max-width: 480px) {
+      .slide h2 {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slider-container">
+    <div class="slider-grid">
+      <!-- Row 1 -->
+      <div class="slide" data-hover-image="Kwa.jpeg" data-audio="KVICHA FINAL.mp3">
+        <img src="IMG_20241005_200513.jpg" alt="Person 1 Image">
+        <div class="info">
+          <h2>AKSHAY S</h2>
+        </div>
+      </div>
+      <div class="slide" data-hover-image="Antony.jpeg" data-audio="antony final.mp3">
+        <img src="Alwin.jpg" alt="Person 2 Image">
+        <div class="info">
+          <h2>ALWIN ANTONY MJ</h2>
+        </div>
+      </div>
+      <div class="slide" data-hover-image="Niko Jack.jpeg" data-audio="jackson 2.mp3">
+        <img src="Azfar.jpg" alt="Person 3 Image">
+        <div class="info">
+          <h2>AZFAR KN</h2>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="slide" data-hover-image="Jude.jpeg" data-audio="BELLI FINAL.mp3">
+        <img src="Fernando.jpg" alt="Person 4 Image">
+        <div class="info">
+          <h2>FERNANDO J THIRUTHANATHIL</h2>
+        </div>
+      </div>
+      <div class="slide" data-hover-image="Haaland.jpg" data-audio="haland final.mp3">
+        <img src="gk12.jpg" alt="Person 5 Image">
+        <div class="info">
+          <h2>GOKUL KIRAN R</h2>
+        </div>
+      </div>
+      <div class="slide" data-hover-image="pep.jpg" data-audio="pep final.mp3">
+        <img src="Madhavan.jpg" alt="Person 6 Image">
+        <div class="info">
+          <h2>MADHAVAN V</h2>
+        </div>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="slide" data-hover-image="Ronaldo.jpeg" data-audio="cr7 trim.mp3">
+        <img src="Richard.jpg" alt="Person 7 Image">
+        <div class="info">
+          <h2>RICHARD B MELATH</h2>
+        </div>
+      </div>
+<div class="slide" data-hover-image="Mbappe.jpg" data-audio="mbu final.mp3">
+        <img src="Sojose.jpg" alt="Person 8 Image">
+        <div class="info">
+          <h2>SOJOSE SKARIA</h2>
+        </div>
+      </div>
+      <div class="slide" data-hover-image="Ibrahmovic.jpeg" data-audio="zlt finAL.mp3">
+        <img src="Thomas.jpg" alt="Person 9 Image">
+        <div class="info">
+          <h2>THOMAS ELDHOSE</h2>
+        </div>
+      </div>
+      <div class="slide" data-hover-image="Lewandowski basado XD 👻.jpeg" data-audio="lewa final.mp3">
+        <img src="Vaishnav.jpg" alt="Person 10 Image">
+        <div class="info">
+          <h2>VAISHNAV V</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+
+  <audio id="audioPlayer" src=""></audio>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    slides.forEach(slide => {
+      const imgElement = slide.querySelector('img');
+      const originalSrc = imgElement.src;
+      const hoverSrc = slide.getAttribute('data-hover-image');
+      const audioSrc = slide.getAttribute('data-audio');
+
+      slide.addEventListener('mouseenter', () => {
+        if (hoverSrc) {
+          imgElement.src = hoverSrc; // Change image if hoverSrc exists
+        }
+        if (audioSrc) {
+          audioPlayer.src = audioSrc; // Play audio if audioSrc exists
+          audioPlayer.play();
+        }
+      });
+
+      slide.addEventListener('mouseleave', () => {
+        imgElement.src = originalSrc; // Revert to original image
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0; // Reset audio to start
+      });
+    });
+  </script>
+
+</body>
+</html>

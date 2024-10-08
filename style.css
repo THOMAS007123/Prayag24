@@ -17,9 +17,10 @@ html, body {
     animation: blinker 1.5s linear infinite;
     color: #686868;
     font-size: 1.5em; /* Larger, responsive font size */
-    margin-top: 2vmax; /* Adjust margin to position it below chevrons */
+     position: absolute;
+     top: 35vmax;/* Adjust margin to position it below chevrons */
 }
-.gg .flipdown {
+.flipdown {
     margin: auto;
     margin-top: 10%;
   }
@@ -55,7 +56,7 @@ canvas {
 }
 
 .intro {
-    height: 100vh; /* Ensure full height for the intro section */
+    height: 100%; /* Ensure full height for the intro section */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,7 +79,7 @@ canvas {
     overflow: hidden;
     transform: translateY(-30%);
     padding-right: 0.1em;
-    top:15vmax;
+    top:25vmax;
 }
 
 @media (min-width: 768px) {
@@ -130,6 +131,7 @@ canvas {
     --base: 10px;
 }
 
+/* General chevron styling */
 .chevron {
     position: absolute;
     width: calc(var(--base) * 3.5);
@@ -137,17 +139,23 @@ canvas {
     opacity: 0;
     transform: scale(0.3);
     animation: move-chevron 2s ease-out infinite;
-    top:8vmax;
+    top: 28vmax;
+    z-index: 5; /* Ensure they are on top of other elements */
 }
 
+/* First chevron */
 .chevron:first-child {
-    animation: move-chevron 2s ease-out 1s infinite;
+    animation: move-chevron 2s ease-out 0.5s infinite; /* Start slightly earlier */
+    z-index: 6; /* Make sure it is in front of the second chevron */
 }
 
+/* Second chevron */
 .chevron:nth-child(2) {
-    animation: move-chevron 2s ease-out 1s infinite;
+    animation: move-chevron 2s ease-out 1s infinite; /* Delay start slightly */
+    z-index: 5; /* Layer it slightly behind */
 }
 
+/* Chevron shape */
 .chevron:before,
 .chevron:after {
     content: '';
@@ -168,6 +176,7 @@ canvas {
     transform: skewY(-30deg);
 }
 
+/* Keyframe animation for chevrons */
 @keyframes move-chevron {
     25% {
         opacity: 1;
@@ -185,6 +194,7 @@ canvas {
         transform: translateY(calc(var(--base) * 8)) scale(0.5);
     }
 }
+
 
 /* Adjust font size for large text in the loop */
 #loop {
