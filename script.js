@@ -325,7 +325,8 @@ scrollTrigger: {
     onUpdate: () => {
       render(); // Keep updating the frame
       if (imageSeq.frame >= frameCount - 1) {
-        redirectToNextPage(); // Redirect to PRAYAG244.html
+        // Redirect to next page when animation completes
+        redirectToNextPage();
       }
     },
 },
@@ -335,9 +336,8 @@ images[1].onload = render;
 
 function redirectToNextPage() {
   console.log("All frames rendered, redirecting to PRAYAG244.html...");
-  setTimeout(() => {
-    window.location.replace("./PRAYAG24.html");
-  }, 1000); // wait for 1 second before redirecting
+  // Ensure redirection happens immediately upon animation completion
+  window.location.replace("./PRAYAG24.html");
 }
 function render() {
 scaleImage(images[imageSeq.frame], context);
