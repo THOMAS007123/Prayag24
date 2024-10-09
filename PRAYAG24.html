@@ -991,6 +991,16 @@ font-weight: 800;
     border-radius: 10px; /* Optional: smooth corners */
     transform: scale(1.1); /* Slight zoom for emphasis */
     }
+    .eventcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+	width:100%;
+    background-color:#000;
+    color: white;
+    overflow: hidden;
+}
 }
 /* Media queries for phone */
 @media (max-width: 768px) {
@@ -1006,6 +1016,16 @@ font-weight: 800;
         border-radius: 10px; /* Optional: smooth corners */
         transform: scale(1.1); /* Slight zoom for emphasis */
     }
+    .eventcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+	width:100%;
+    background-color:#000;
+    color: white;
+    overflow: hidden;
+}
 }
 
   
@@ -1219,6 +1239,7 @@ font-weight: 800;
 .scroll-text {
     font-size: 33px;
     font-family: "Montserrat", sans-serif; 
+    font-weight: 800;
     width:75%;
     line-height:1.3em;
     text-align: center;
@@ -1288,7 +1309,7 @@ font-weight: 800;
     }
 .eventcontainer{
    
-    height: 85vh;
+    height: 50vh;
 	
    
 }
@@ -1336,16 +1357,6 @@ margin-left: 2px;
     margin-bottom: 10px;      /* Reduces the space between the image and the title */
 }
 
-.sponsor-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin-top: 1px;
-    opacity:.6;          /* Adjusts the spacing between the title and the image */
-}
-
-
 /* Media query for mobile screens */
 @media screen and (max-width: 768px) {
     /* .sponsor-container {
@@ -1354,17 +1365,13 @@ margin-left: 2px;
 
     .sponsor img {
         max-width: 90%;  /* Make the image slightly larger on mobile */
-        margin-bottom: 5px;  /* Decrease margin between the image and the title */
-    }
-
-    .sponsor-title {
-        font-size: 1.2em;  /* Reduce font size for mobile */
+        margin-bottom: 50px;  /* Decrease margin between the image and the title */
     }
 
     /* Reduce gap between .sponsor-container and other elements */
     .sponsor-container {
         padding: 10px;  /* Decrease padding for smaller devices */
-        min-height: 30vh;  /* Set container height to 50% of the viewport height */
+        min-height: 6vh;  /* Set container height to 50% of the viewport height */
         width: 100%;  /* Adjust width to make it more compact */
     }
 }
@@ -1500,8 +1507,7 @@ margin-left: 2px;
     <!-- Title Sponsor (Centered) -->
 
     <div class="sponsor">
-        <img src="matrixx logo white.svg" alt="Federal Bank Logo">
-        <div class="sponsor-title">Title Sponsor</div>
+        <img src="matrixx.png" alt="Federal Bank Logo">
     </div>
 </div>
 <br><br><br><br>
@@ -1773,15 +1779,9 @@ if (scrollCount > 120) scrollCount = 120; // Cap scrollCount at 100
 
 // Handle video display based on scrollCount
 if (scrollCount >= 100) {
-    // Remove the video after the 99th scroll
-    if (video.parentNode) {
-        video.parentNode.removeChild(video);
-    }
+    video.style.visibility = 'hidden'; // Hide video without stopping it
 } else {
-    // Re-add the video when scrolling back below the 99th scroll
-    if (!document.body.contains(video)) {
-        document.body.appendChild(video); // Re-append video to body
-    }
+    video.style.visibility = 'visible'; // Make video visible again
 }
 
 if (scrollCount >= 50) {
