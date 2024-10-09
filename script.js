@@ -376,8 +376,8 @@
 
 // Function to initialize the video playback when scrolled into view
 function initializeVideoOnScroll() {
-  const videoContainer = document.getElementById("videoContainer");  // Update this to match the container of your video
-  const video = document.getElementById("myVideo");  // Update this to match the ID of your video element
+  const dvr = document.getElementById('desktop-video');
+  const pvr = document.getElementById('desktop-video');  // Update this to match the ID of your video element
 
   // Check if ScrollTrigger and LocomotiveScroll are properly initialized
   if (video && videoContainer) {
