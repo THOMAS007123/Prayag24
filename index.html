@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="flipdown.css">
 </head>
 <body>
+    <div id="main">
         <div class="container">
             <div class="intro">
                 <div id="flipdown" class="flipdown"></div>
@@ -29,90 +30,86 @@
         <div id="page">
             <!-- <div id="loop"> </div>
             <canvas></canvas> -->
-            <div class="videocontainer" id="videocontainer">
-                <!-- Video for larger screens (laptop or tablet) -->
-                <video id="desktop-video" controls muted autoplay loop>
-                    <source src="./vr.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-        
-                <!-- Video for smaller screens (phone) -->
-                <video id="mobile-video" muted autoplay playsinline loop>
-                    <source src="./vr1.mp4" type="video/mp4">
+            <div id="videoContainer" class="video-container">
+                <video id="vrVideo" autoplay muted playsinline>
+                    <!-- Laptop video for screens wider than 768px -->
+                    <source src="./vr.mp4" type="video/mp4" media="(min-width: 769px)"> 
+                    <!-- Mobile video for screens 768px wide or less -->
+                    <source src="./vr1.mp4" type="video/mp4" media="(max-width: 768px)"> 
                     Your browser does not support the video tag.
                 </video>
             </div>
-        
         </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-       document.addEventListener('DOMContentLoaded', () => {
-  const audio = document.getElementById('myAudio');
-  const blinker = document.querySelector('.blinker');
-  const videoContainer = document.getElementById('videocontainer');
-  const dvr = document.getElementById('desktop-video');
-  const pvr = document.getElementById('mobile-video');
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('myAudio');
+            const blinker = document.querySelector('.blinker');
+            const videoContainer = document.getElementById('videoContainer');
+            const vrVideo = document.getElementById('vrVideo');
 
-  // Play intro audio if autoplay isn't blocked
-  audio.play().catch((error) => console.error('Autoplay blocked:', error));
+            // Play intro audio if autoplay isn't blocked
+            audio.play().catch((error) => console.error('Autoplay blocked:', error));
 
-  // Hide blinker after 20 seconds
-  setTimeout(() => {
-    blinker.style.animation = 'none';
-    blinker.style.display = 'none';
-  }, 20000);
+            // Hide blinker after 20 seconds
+            setTimeout(() => {
+                blinker.style.animation = 'none';
+                blinker.style.display = 'none';
+            }, 20000);
 
-  // Initially pause the video
-  dvr.pause();
-  pvr.pause();
-  
-  // ScrollTrigger for managing video playback
-  gsap.registerPlugin(ScrollTrigger);
-  
-  ScrollTrigger.create({
-    trigger: videoContainer,
-    start: 'top center',  // Video starts playing when the video container is in the center of the viewport
-    onEnter: () => {
-      // Play the video when entering the video container
-      if (dvr.paused) {
-        dvr.play().catch((error) => console.error('Failed to play video:', error));
-      }
-    },
-    onLeaveBack: () => {
-      // Pause and reset the video if the user scrolls back to the intro container
-      if (!dvr.paused) {
-        dvr.pause();
-        dvr.currentTime = 0; // Reset the video to the start
-      }
-    }
-  });
-  ScrollTrigger.create({
-    trigger: videoContainer,
-    start: 'top center',  // Video starts playing when the video container is in the center of the viewport
-    onEnter: () => {
-      // Play the video when entering the video container
-      if (pvr.paused) {
-        pvr.play().catch((error) => console.error('Failed to play video:', error));
-      }
-    },
-    onLeaveBack: () => {
-      // Pause and reset the video if the user scrolls back to the intro container
-      if (!pvr.paused) {
-        pvr.pause();
-        pvr.currentTime = 0; // Reset the video to the start
-      }
-    }
-  });
+            // Initially pause the video
+            vrVideo.pause();
+
+            // ScrollTrigger for managing video playback
+            gsap.registerPlugin(ScrollTrigger);
+            
+            ScrollTrigger.create({
+                trigger: videoContainer,
+                start: 'top center',  // Video starts playing when the video container is in the center of the viewport
+                onEnter: () => {
+                    // Play the video when entering the video container
+                    if (vrVideo.paused) {
+                        vrVideo.play().catch((error) => console.error('Failed to play video:', error));
+                    }
+                },
+                onLeaveBack: () => {
+                    // Pause and reset the video if the user scrolls back to the intro container
+                    if (!vrVideo.paused) {
+                        vrVideo.pause();
+                        vrVideo.currentTime = 0; // Reset the video to the start
+                    }
+                }
+            });
+
+            // Once the video ends, transition to the next page
+            vrVideo.addEventListener('ended', () => {
+                setTimeout(() => {
+                    window.location.href = './PRAYAG24.html';
+                }, 500);
+            });
+        });
+//   ScrollTrigger.create({
+//     trigger: videoContainer,
+//     start: 'top center',  // Video starts playing when the video container is in the center of the viewport
+//     onEnter: () => {
+//       // Play the video when entering the video container
+//       if (pvr.paused) {
+//         pvr.play().catch((error) => console.error('Failed to play video:', error));
+//       }
+//     },
+//     onLeaveBack: () => {
+//       // Pause and reset the video if the user scrolls back to the intro container
+//       if (!pvr.paused) {
+//         pvr.pause();
+//         pvr.currentTime = 0; // Reset the video to the start
+//       }
+//     }
+//   });
 
   // Once the video ends, transition to the next page
-  vrVideo.addEventListener('ended', () => {
-    setTimeout(() => {
-      window.location.href = './PRAYAG24.html';
-    }, 500);
-  });
-});
 
             // document.addEventListener("DOMContentLoaded", () => {
             // const blinker = document.querySelector('.blinker');
