@@ -32,7 +32,8 @@
             <canvas></canvas> -->
             <div id="videoContainer" class="video-container">
                 <video id="vrVideo" autoplay muted playsinline>
-                    <source src="./vr.mp4" type="video/mp4">
+                    <source src="./vr.mp4" type="video/mp4" media="(min-width: 769px)"> <!-- For desktops and tablets -->
+                    <source src="./vr1.mp4" type="video/mp4" media="(max-width: 768px)"> <!-- For mobile devices -->
                     Your browser does not support the video tag.
                 </video>
             </div>
