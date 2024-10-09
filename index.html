@@ -43,61 +43,51 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
        document.addEventListener('DOMContentLoaded', () => {
-        const audio = document.getElementById('myAudio');
-        const blinker = document.querySelector('.blinker');
-        const videoContainer = document.getElementById('videoContainer');
-        const vrVideo = document.getElementById('vrVideo');
+  const audio = document.getElementById('myAudio');
+  const blinker = document.querySelector('.blinker');
+  const videoContainer = document.getElementById('videoContainer');
+  const vrVideo = document.getElementById('vrVideo');
 
-        // Play intro audio if autoplay isn't blocked
-        audio.play().catch((error) => console.error('Autoplay blocked:', error));
+  // Play intro audio if autoplay isn't blocked
+  audio.play().catch((error) => console.error('Autoplay blocked:', error));
 
-        // Hide blinker after 20 seconds
-        setTimeout(() => {
-            blinker.style.animation = 'none';
-            blinker.style.display = 'none';
-        }, 20000);
+  // Hide blinker after 20 seconds
+  setTimeout(() => {
+    blinker.style.animation = 'none';
+    blinker.style.display = 'none';
+  }, 20000);
 
-        // Initially pause the video
+  // Initially pause the video
+  vrVideo.pause();
+
+  // ScrollTrigger for managing video playback
+  gsap.registerPlugin(ScrollTrigger);
+  
+  ScrollTrigger.create({
+    trigger: videoContainer,
+    start: 'top center',  // Video starts playing when the video container is in the center of the viewport
+    onEnter: () => {
+      // Play the video when entering the video container
+      if (vrVideo.paused) {
+        vrVideo.play().catch((error) => console.error('Failed to play video:', error));
+      }
+    },
+    onLeaveBack: () => {
+      // Pause and reset the video if the user scrolls back to the intro container
+      if (!vrVideo.paused) {
         vrVideo.pause();
+        vrVideo.currentTime = 0; // Reset the video to the start
+      }
+    }
+  });
 
-        // ScrollTrigger for managing video playback
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Create ScrollTrigger for video playback
-        ScrollTrigger.create({
-            trigger: videoContainer,
-            start: 'top bottom', // Video starts playing when the bottom of the video container is at the bottom of the viewport
-            end: 'bottom bottom', // Video stops playing when the bottom of the video container is at the top of the viewport
-            onEnter: () => {
-                // Play the video when the container is fully visible
-                vrVideo.play().catch((error) => console.error('Failed to play video:', error));
-            },
-            onLeave: () => {
-                // Pause the video if scrolling past the video container
-                if (!vrVideo.paused) {
-                    vrVideo.pause();
-                }
-            },
-            onLeaveBack: () => {
-                // Reset the video when scrolling back to the intro section
-                if (!vrVideo.paused) {
-                    vrVideo.pause();
-                    vrVideo.currentTime = 0; // Reset the video to the start
-                }
-            },
-            onEnterBack: () => {
-                // When scrolling back into the container, reset the video
-                vrVideo.currentTime = 0;
-            }
-        });
-
-        // Once the video ends, transition to the next page
-        vrVideo.addEventListener('ended', () => {
-            setTimeout(() => {
-                window.location.href = './PRAYAG24.html';
-            }, 500);
-        });
-    });
+  // Once the video ends, transition to the next page
+  vrVideo.addEventListener('ended', () => {
+    setTimeout(() => {
+      window.location.href = './PRAYAG24.html';
+    }, 500);
+  });
+});
 
             // document.addEventListener("DOMContentLoaded", () => {
             // const blinker = document.querySelector('.blinker');
