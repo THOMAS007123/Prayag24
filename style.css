@@ -303,7 +303,11 @@ canvas {
   @media screen and (max-width: 768px) {
     #videoContainer {
         width: 100%;
-        height: 100%; /* Full viewport height */
+        height: 100vh; /* Full viewport height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
       }
     #vrVideo {
         max-width: 100%;
