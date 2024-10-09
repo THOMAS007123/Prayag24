@@ -366,5 +366,7 @@ canvas {
         object-fit: cover; /* Ensures video covers the screen without distortion */
     }
 }
-
+::-webkit-scrollbar {
+    display: none;            /* Hides the scrollbar */
+}
   
