@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="flipdown.css">
 </head>
 <body>
-    <div id="main">
+    < <div id="main">
         <div class="container">
             <div class="intro">
                 <div id="flipdown" class="flipdown"></div>
@@ -28,14 +28,10 @@
             </div>
         </div>
         <div id="page">
-            <!-- <div id="loop"> </div>
-            <canvas></canvas> -->
             <div id="videoContainer" class="video-container">
-                <video id="vrVideo" autoplay muted playsinline>
-                    <!-- Laptop video for screens wider than 768px -->
-                    <source src="./vr.mp4" type="video/mp4" media="(min-width: 769px)"> 
-                    <!-- Mobile video for screens 768px wide or less -->
-                    <source src="./vr1.mp4" type="video/mp4" media="(max-width: 768px)"> 
+                <video id="vrVideo" muted playsinline>
+                    <source src="vr.mp4" type="video/mp4" media="(min-width: 769px)">
+                    <source src="vr1.mp4" type="video/mp4" media="(max-width: 768px)">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -45,26 +41,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
         const audio = document.getElementById('myAudio');
         const blinker = document.querySelector('.blinker');
         const videoContainer = document.getElementById('videoContainer');
         const vrVideo = document.getElementById('vrVideo');
         
-        // Prevent scrolling back up after reaching #page
-        let lastScrollTop = 0;
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-            if (currentScroll < lastScrollTop) {
-                // Scrolling up; lock the scroll at the current position
-                window.scrollTo(0, lastScrollTop);
-            } else {
-                // Update last scroll position if scrolling down
-                lastScrollTop = currentScroll;
-            }
-        });
-
         // Play intro audio if autoplay isn't blocked
         audio.play().catch((error) => console.error('Autoplay blocked:', error));
 
@@ -74,30 +56,36 @@
             blinker.style.display = 'none';
         }, 20000);
 
-        // IntersectionObserver to play/pause video based on visibility
+        // Function to lock scrolling
+        function lockScroll() {
+            document.body.style.overflow = 'hidden';
+        }
+
+        // IntersectionObserver to play video and lock scroll when 65% visible
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && entry.intersectionRatio === 1) {
+                if (entry.isIntersecting) {
                     vrVideo.play().catch(error => console.error('Error playing video:', error));
-                } else {
-                    vrVideo.pause();
+                    lockScroll(); // Lock scroll when the video starts playing
+                    observer.disconnect(); // Disconnect observer to keep video playing
                 }
             });
         }, {
-            threshold: .86 // Trigger only when 100% of the container is visible
+            threshold: 0.85
         });
 
         // Start observing the video container
         observer.observe(videoContainer);
 
-        // Once the video ends, transition to the next page
+        // Optionally, you can add code to handle other events here, like transitioning pages on video end
         vrVideo.addEventListener('ended', () => {
+            document.body.style.overflow = ''; // Re-enable scroll if needed after video ends
             setTimeout(() => {
-                window.location.href = 'PRAYAG24.html';
+                window.location.href = 'indexerr.html'; // Insert URL for next page if needed
             }, 500);
         });
-    });  
+    });
     </script>
-    <script src="script.js"></script>
+    
 </body>
 </html>
