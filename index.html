@@ -46,88 +46,57 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const audio = document.getElementById('myAudio');
-            const blinker = document.querySelector('.blinker');
-            const videoContainer = document.getElementById('videoContainer');
-            const vrVideo = document.getElementById('vrVideo');
+        const audio = document.getElementById('myAudio');
+        const blinker = document.querySelector('.blinker');
+        const videoContainer = document.getElementById('videoContainer');
+        const vrVideo = document.getElementById('vrVideo');
+        
+        // Prevent scrolling back up after reaching #page
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll < lastScrollTop) {
+                // Scrolling up; lock the scroll at the current position
+                window.scrollTo(0, lastScrollTop);
+            } else {
+                // Update last scroll position if scrolling down
+                lastScrollTop = currentScroll;
+            }
+        });
 
-            // Play intro audio if autoplay isn't blocked
-            audio.play().catch((error) => console.error('Autoplay blocked:', error));
+        // Play intro audio if autoplay isn't blocked
+        audio.play().catch((error) => console.error('Autoplay blocked:', error));
 
-            // Hide blinker after 20 seconds
-            setTimeout(() => {
-                blinker.style.animation = 'none';
-                blinker.style.display = 'none';
-            }, 20000);
+        // Hide blinker after 20 seconds
+        setTimeout(() => {
+            blinker.style.animation = 'none';
+            blinker.style.display = 'none';
+        }, 20000);
 
-            // Initially pause the video
-            vrVideo.pause();
-
-            // ScrollTrigger for managing video playback
-            gsap.registerPlugin(ScrollTrigger);
-            
-            ScrollTrigger.create({
-                trigger: videoContainer,
-                start: 'top center',  // Video starts playing when the video container is in the center of the viewport
-                onEnter: () => {
-                    // Play the video when entering the video container
-                    if (vrVideo.paused) {
-                        vrVideo.play().catch((error) => console.error('Failed to play video:', error));
-                    }
-                },
-                onLeaveBack: () => {
-                    // Pause and reset the video if the user scrolls back to the intro container
-                    if (!vrVideo.paused) {
-                        vrVideo.pause();
-                        vrVideo.currentTime = 0; // Reset the video to the start
-                    }
+        // IntersectionObserver to play/pause video based on visibility
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio === 1) {
+                    vrVideo.play().catch(error => console.error('Error playing video:', error));
+                } else {
+                    vrVideo.pause();
                 }
             });
-
-            // Once the video ends, transition to the next page
-            vrVideo.addEventListener('ended', () => {
-                setTimeout(() => {
-                    window.location.href = './PRAYAG24.html';
-                }, 500);
-            });
+        }, {
+            threshold: 1.0 // Trigger only when 100% of the container is visible
         });
-//   ScrollTrigger.create({
-//     trigger: videoContainer,
-//     start: 'top center',  // Video starts playing when the video container is in the center of the viewport
-//     onEnter: () => {
-//       // Play the video when entering the video container
-//       if (pvr.paused) {
-//         pvr.play().catch((error) => console.error('Failed to play video:', error));
-//       }
-//     },
-//     onLeaveBack: () => {
-//       // Pause and reset the video if the user scrolls back to the intro container
-//       if (!pvr.paused) {
-//         pvr.pause();
-//         pvr.currentTime = 0; // Reset the video to the start
-//       }
-//     }
-//   });
 
-  // Once the video ends, transition to the next page
+        // Start observing the video container
+        observer.observe(videoContainer);
 
-            // document.addEventListener("DOMContentLoaded", () => {
-            // const blinker = document.querySelector('.blinker');
-
-            // // If mobile, skip VR and go straight to the redirection
-            // if (isMobileDevice()) {
-            //     setTimeout(() => {
-            //     blinker.style.animation = 'none';
-            //     blinker.style.display = 'none';
-
-            //     // Redirect to the next page for mobile devices
-            //     window.location.replace("./PRAYAG24.html"); // Change to your desired next page URL
-            //     }, 2000); // Wait 10 seconds for blinker animation
-            // } else {
-            //     // For larger screens (non-mobile devices), keep VR logic
-            //     locomotive();  // Call your VR scroll animation setup for larger screens
-            // }
-            // });        
+        // Once the video ends, transition to the next page
+        vrVideo.addEventListener('ended', () => {
+            setTimeout(() => {
+                window.location.href = '';
+            }, 500);
+        });
+    });  
     </script>
     <script src="script.js"></script>
 </body>
