@@ -303,7 +303,7 @@ video{
 @media (max-width: 768px) { /* Tablets and below */
     #videoContainer {
         width: 100vw;
-        height: 60vh; /* Full height for mobile devices */
+        height: 90vh; /* Full height for mobile devices */
     }
 
     #vrVideo {
