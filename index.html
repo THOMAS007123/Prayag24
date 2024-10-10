@@ -50,17 +50,36 @@
         const blinker = document.querySelector('.blinker');
         const videoContainer = document.getElementById('videoContainer');
         const vrVideo = document.getElementById('vrVideo');
+        
+        // Prevent scrolling back up after reaching #page
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll < lastScrollTop) {
+                // Scrolling up; lock the scroll at the current position
+                window.scrollTo(0, lastScrollTop);
+            } else {
+                // Update last scroll position if scrolling down
+                lastScrollTop = currentScroll;
+            }
+        });
 
-        // Prevent scrolling when video is in view
+        // Play intro audio if autoplay isn't blocked
+        audio.play().catch((error) => console.error('Autoplay blocked:', error));
+
+        // Hide blinker after 20 seconds
+        setTimeout(() => {
+            blinker.style.animation = 'none';
+            blinker.style.display = 'none';
+        }, 20000);
+
+        // IntersectionObserver to play/pause video based on visibility
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && entry.intersectionRatio === 1) {
-                    // Lock scroll when the video is fully visible
-                    document.body.style.overflow = 'hidden';
                     vrVideo.play().catch(error => console.error('Error playing video:', error));
                 } else {
-                    // Re-enable scrolling when the video is not fully visible
-                    document.body.style.overflow = 'auto';
                     vrVideo.pause();
                 }
             });
@@ -74,10 +93,10 @@
         // Once the video ends, transition to the next page
         vrVideo.addEventListener('ended', () => {
             setTimeout(() => {
-                window.location.href = ''; // Navigate to the next page
+                window.location.href = 'PRAYAG24.html';
             }, 500);
         });
-    }); 
+    });  
     </script>
     <script src="script.js"></script>
 </body>
