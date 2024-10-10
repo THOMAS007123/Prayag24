@@ -308,22 +308,7 @@ video{
     display: none;
 }
 
-/* Media Queries for responsive design */
-@media (max-width: 768px) { /* Tablets and below */
-    #videoContainer {
-        height: 75vh; /* Adjust height for tablets */
-    }
-}
 
-@media (max-width: 480px) { /* Phones */
-    #videoContainer {
-        height: 60vh; /* Adjust height for mobile devices */
-    }
-
-    #vrVideo {
-        object-fit: contain; /* Maintain aspect ratio for small screens */
-    }
-}
 
 @media (max-width: 768px) { /* Tablets and below */
     #videoContainer {
