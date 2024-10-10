@@ -50,25 +50,8 @@
     const blinker = document.querySelector('.blinker');
     const videoContainer = document.getElementById('videoContainer');
     const vrVideo = document.getElementById('vrVideo');
-    
-    // Detect if on mobile
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-    // Prevent scrolling back up after reaching #page
-    let lastScrollTop = 0;
-    
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-        if (currentScroll < lastScrollTop) {
-            // Scrolling up; lock the scroll at the current position
-            window.scrollTo(0, lastScrollTop);
-        } else {
-            // Update last scroll position if scrolling down
-            lastScrollTop = currentScroll;
-        }
-    });
-
-    // Play intro audio if autoplay isn't blocked
+    // Play intro audio
     audio.play().catch((error) => console.error('Autoplay blocked:', error));
 
     // Hide blinker after 20 seconds
@@ -77,28 +60,8 @@
         blinker.style.display = 'none';
     }, 20000);
 
-    // IntersectionObserver to play/pause video based on visibility
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && entry.intersectionRatio === 1) {
-                // Add a slight delay for mobile devices to avoid issues with animations
-                if (isMobile) {
-                    setTimeout(() => {
-                        vrVideo.play().catch(error => console.error('Error playing video:', error));
-                    }, 500); // Adjust delay if needed
-                } else {
-                    vrVideo.play().catch(error => console.error('Error playing video:', error));
-                }
-            } else {
-                vrVideo.pause();
-            }
-        });
-    }, {
-        threshold: 1.0 // Trigger only when 100% of the container is visible
-    });
-
-    // Start observing the video container
-    observer.observe(videoContainer);
+    // Play video as soon as the page loads
+    vrVideo.play().catch((error) => console.error('Error playing video:', error));
 
     // Once the video ends, transition to the next page
     vrVideo.addEventListener('ended', () => {
@@ -106,7 +69,7 @@
             window.location.href = 'PRAYAG24.html';
         }, 500);
     });
-});  
+});
 
     </script>
     <script src="script.js"></script>
