@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayag24</title>
+    <link rel="icon" href="./Logo png without text.png" type="image/png">
+    <link rel="stylesheet" href="./style copy.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <script type="text/javascript" src="./main.js"></script>
+    <script type="text/javascript" src="./flipdown.js"></script>
+    <link rel="stylesheet" type="text/css" href="flipdown.css">
+</head>
+<body>
+    <div id="main">
+        <div class="container">
+            <div class="intro">
+                <div id="flipdown" class="flipdown"></div>
+                <div class="chevron"></div>
+                <div class="chevron"></div>
+                <div class="cursor typewriter-animation">Your gateway to a parallel digital universe begins here.</div>
+                <div class="blinker">Scroll Down!!</div>
+                <audio id="myAudio" style="display:none;">
+                    <source src="./voice.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <div id="page">
+            <div id="videoContainer" class="video-container">
+                <video id="vrVideo" autoplay muted playsinline>
+                    <source src="./vr.mp4" type="video/mp4" media="(min-width: 769px)"> <!-- For desktops and tablets -->
+                    <source src="./vr1.mp4" type="video/mp4" media="(max-width: 768px)"> <!-- For mobile devices -->
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const audio = document.getElementById('myAudio');
+        const blinker = document.querySelector('.blinker');
+        const videoContainer = document.getElementById('videoContainer');
+        const vrVideo = document.getElementById('vrVideo');
+        
+        // Prevent scrolling back up after reaching #page
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll < lastScrollTop) {
+                // Scrolling up; lock the scroll at the current position
+                window.scrollTo(0, lastScrollTop);
+            } else {
+                // Update last scroll position if scrolling down
+                lastScrollTop = currentScroll;
+            }
+        });
+
+        // Play intro audio if autoplay isn't blocked
+        audio.play().catch((error) => console.error('Autoplay blocked:', error));
+
+        // Hide blinker after 20 seconds
+        setTimeout(() => {
+            blinker.style.animation = 'none';
+            blinker.style.display = 'none';
+        }, 20000);
+
+        // IntersectionObserver to play/pause video based on visibility
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio === 1) {
+                    vrVideo.play().catch(error => console.error('Error playing video:', error));
+                } else {
+                    vrVideo.pause();
+                }
+            });
+        }, {
+            threshold: 1.0 // Trigger only when 100% of the container is visible
+        });
+
+        // Start observing the video container
+        observer.observe(videoContainer);
+
+        // Once the video ends, transition to the next page
+        vrVideo.addEventListener('ended', () => {
+            setTimeout(() => {
+                window.location.href = '';
+            }, 500);
+        });
+    });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
